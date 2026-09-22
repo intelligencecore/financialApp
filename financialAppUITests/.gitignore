@@ -1,0 +1,11 @@
+#Ignore macOS files
+
+.DS_Store
+
+
+
+#Ignore folder
+
+/financialAppTests
+
+/financialAppUITests

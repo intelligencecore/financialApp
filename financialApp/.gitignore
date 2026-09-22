@@ -1,11 +1,6 @@
-#Ignore macOS files
+# Ignore macOS and other files
 
 .DS_Store
+.env
 
 
-
-#Ignore folder
-
-/financialAppTests
-
-/financialAppUITests
