@@ -1,6 +1,0 @@
-# Ignore macOS and other files
-
-.DS_Store
-.env
-
-
