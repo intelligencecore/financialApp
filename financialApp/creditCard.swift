@@ -1,20 +1,32 @@
-//
-//  creditCard.swift
-//  financialApp
-//
-//  Created by Richier on 9/22/26.
-//
+import Foundation
+import SwiftUI
 
-//import Foundation
-//import SwiftUI
-//
-//
-//
-//struct creditCard:View {
-//	var someview {
-//		
-//		
-//		
-//		
-//	}
-//}
+
+
+
+
+
+
+
+
+
+struct creditCard:View {
+	
+	var body: some  View {
+
+		Text("Text")
+			.font(.title)
+			.foregroundColor(Color.blue)
+		
+		
+	}
+}
+
+
+
+
+
+
+#Preview{
+	creditCard()
+}

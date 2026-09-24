@@ -1,7 +1,3 @@
-//
-//  dockVew.swift
-//  financialApp
-
 import SwiftUI
 
 
@@ -20,7 +16,7 @@ struct dockView: View {
 			}
 			
 			NavigationStack {
-				//
+				creditCard()
 			}
 			.tabItem {
 				Label("Credit Card", systemImage: "creditcard")
