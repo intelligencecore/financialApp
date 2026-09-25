@@ -15,15 +15,22 @@ import SwiftUI
 struct settingsView:View {
 	var body: some View {
 		
-		
-		Text("View with all the app settingns")
-			.font(.largeTitle)
-			.bold()
-		
-		
+		VStack {
+			
+			Text("View with all the app settingns")
+				.font(.largeTitle)
+				.bold()
+			
+			
+		}
+		.frame(maxWidth: .infinity, maxHeight: .infinity)
+		.background(.green)
+//		.ignoresSafeArea()
 		
 	}
+	
 }
+
 
 
 #Preview {
