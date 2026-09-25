@@ -8,10 +8,10 @@
 import SwiftUI
 
 @main
-struct financialAppApp: App {
+struct FinancialApp: App {
     var body: some Scene {
         WindowGroup {
-			dockView()
+			DockView()
         }
     }
 }
