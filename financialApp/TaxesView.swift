@@ -17,7 +17,7 @@ struct TaxesView: View {
 			
 			VStack(alignment: .leading, spacing: 20) {
 				
-				Text(" What are taxes and why do we have to pay it?")
+				Text("What are taxes, and why do we have to pay them?")
 					.font(.title3)
 					.bold()
 				
@@ -26,19 +26,19 @@ struct TaxesView: View {
 				
 				Text("But why do I need to pay it?")
 					.font(.system(size: 20))
-					.bold()
+					.fontWeight(.semibold)
 				
 				
-				Text(" You need to pay taxes because it is a legal obligation that funds the shared infrastructure, public services, and safety systems of society. The US government collect these mandatory payments from individuals and businesses to build roads, operate public schools, pay for emergency services like police and fire departments, and maintain national defense. Essentially, taxes are the entry fee for living in an organized community, providing the essential services and stability that individuals could not afford or manage on their own.")
+				Text("You need to pay taxes because it is a legal obligation that funds the shared infrastructure, public services, and safety systems of society. The US government collect these mandatory payments from individuals and businesses to build roads, operate public schools, pay for emergency services like police and fire departments, and maintain national defense. Essentially, taxes are the entry fee for living in an organized community, providing the essential services and stability that individuals could not afford or manage on their own.")
 					.font(.system(size: 16))
 				
 				Text("How many taxes do I have to pay in the year?")
 					.font(.system(size: 20))
-					.bold()
+					.fontWeight(.semibold)
 				
 				
 				
-				Text(" Text here")
+				Text("")
 				
 				
 				
