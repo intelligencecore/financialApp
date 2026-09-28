@@ -62,8 +62,15 @@ struct TaxesView: View {
 				VStack{
 				Text("You have to pay three main types of income-based taxes: Federal Income Tax (which uses a progressive system with rates ranging from 10% to 37% based on your income brackets), FICA Payroll Taxes (which consist of a 6.2% Social Security tax on earnings up to $184,500 and a 1.45% Medicare tax), and State and Local Income Taxes (which vary completely depending on where you live). Additionally, you are subject to consumption and ownership costs like sales and property taxes depending on your local municipal laws.")
 			}
-				.font(.body)
 				
+				.font(.body)
+				.lineSpacing(3)
+				.padding(16)
+				.frame(maxWidth: .infinity, alignment: .leading)
+				.background(
+					RoundedRectangle(cornerRadius: 14, style: .continuous)
+						.fill(Color.green.opacity(0.30))
+				)
 				
 				
 				
