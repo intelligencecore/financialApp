@@ -9,7 +9,6 @@ struct DockView: View {
 		
 			
 			// refactor the view because it was rendering the page completely blank
-		
 		TabView {
 			
 			NavigationStack{
@@ -23,8 +22,7 @@ struct DockView: View {
 			}
 			.tabItem { Label("Credit Card", systemImage: "creditcard")
 				}
-			.toolbarBackground(.red, for: .tabBar)
-			.toolbarBackground(.visible, for: .tabBar)
+	
 
 			
 			NavigationStack{
@@ -39,7 +37,6 @@ struct DockView: View {
 			.tabItem { Label("Settings", systemImage: "gear")
 				.foregroundColor(Color.blue)}
 		}
-		//.tint(.clear) 
 	}
 }
 
