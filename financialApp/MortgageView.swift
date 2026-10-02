@@ -43,10 +43,13 @@ struct MortgageView: View {
 				}
 
 				VStack {
-					VStack(spacing: 16) {
+					VStack(spacing: 10) {
 						Text("Mortgage Calculator")
+							.fontWeight(.heavy)
+							.bold()
 							.font(.headline)
 
+						// Change the color of the "Home value to something that can be seen in both dark/clear mode"
 						VStack {
 							TextField("Home Value", text: $homeValue)
 								.keyboardType(.decimalPad)
@@ -54,7 +57,7 @@ struct MortgageView: View {
 								.padding()
 								.background(
 									RoundedRectangle(cornerRadius: 8).fill(
-										fieldColor
+										.secondary
 									)
 								)
 						}
@@ -72,7 +75,7 @@ struct MortgageView: View {
 									)
 								)
 						}
-						.padding(.horizontal)
+						.padding(.horizontal, 20)
 
 						VStack {
 							TextField("Loan Amount", text: $loanAmount)
@@ -114,7 +117,27 @@ struct MortgageView: View {
 							)
 						}
 						.padding(.horizontal)
-
+						
+						VStack{
+							Button {
+								homeValue = ""
+								downPayment = ""
+								loanAmount = ""
+								interestRate = ""
+							} label: {
+								Text("Reset")
+							}
+								// .buttonStyle(GlassButtonStyle())
+						}
+						.background(
+							RoundedRectangle(cornerRadius: 10)
+								.fill(Color.black.opacity(0.3))
+						)
+						
+						
+						
+						
+						
 					}
 					.background(
 						RoundedRectangle(cornerRadius: 10)
@@ -126,16 +149,10 @@ struct MortgageView: View {
 							Button("Done") { isDone = false }
 						}
 					}
-
-					Button {
-						homeValue = ""
-						downPayment = ""
-						loanAmount = ""
-						interestRate = ""
-					} label: {
-						Text("Reset")
-					}
-					.buttonStyle(GlassButtonStyle())
+ 
+					
+					// note to self: unify the reset button with the calculator
+					
 
 					Section {
 						Text(
