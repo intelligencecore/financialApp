@@ -7,8 +7,6 @@ struct DockView: View {
 	var body: some View {
 			// start
 		
-			
-			// refactor the view because it was rendering the page completely blank
 		TabView {
 			
 			NavigationStack{
@@ -16,15 +14,18 @@ struct DockView: View {
 			}
 			.tabItem { Label("Taxes", systemImage: "percent")}
 			
+			NavigationStack{
+				SavingsView()
+			}
+			.tabItem{Label ("Savings", systemImage: "banknote.fill")
+			}
 			
 			NavigationStack{
 				CreditCardView()
 			}
 			.tabItem { Label("Credit Card", systemImage: "creditcard")
 				}
-	
 
-			
 			NavigationStack{
 				MortgageView()
 			}
