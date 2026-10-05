@@ -23,26 +23,22 @@ struct CreditCardView:View {
 			
 			
 		VStack {
-
-			
-			
-			
-			 VStack(alignment: .leading, spacing: 40){
+			VStack(alignment: .leading, spacing: 40){
 			Text("💳Whart are credit cards?")
 				.fontWeight(.semibold)
+				.frame(maxWidth: .infinity, alignment: .leading)
 				}
-			
-			
-			
+
 			VStack{
 				Text("A credit card is a physical or digital financial tool issued by a bank that grants you access to a revolving line of credit, allowing you to borrow money up to a pre-approved limit to make purchases rather than drawing from your personal bank account. Every month, you receive a bill for what you spent; if you pay the entire balance in full by the due date, you avoid interest charges entirely while safely building your credit score and earning rewards. However, if you only pay the minimum required amount, the remaining balance rolls over to the next month and accrues interest at a typically high Annual Percentage Rate (APR), which can quickly lead to high-interest debt if not managed responsibly.")
 				
+					//.multilineTextAlignment(.leading)
 					.padding()
 					.bold()
 			}
 			.background(
-				RoundedRectangle(cornerRadius: 10)
-					.fill(Color.yellow.opacity(0.3))
+				RoundedRectangle(cornerRadius: 14)
+					.fill(Color("CustomYellow"))
 			)
 			
 			VStack{
@@ -54,6 +50,7 @@ struct CreditCardView:View {
 			}
 			
 			
+			
 		}
 		
 		
@@ -61,7 +58,7 @@ struct CreditCardView:View {
 	}
 		.navigationTitle("Credit Cards")
 		.frame(maxWidth: .infinity, maxHeight: .infinity)
-		.background(.yellow.opacity(0.7))
+		.background(Color("CustomYellow"))
 		
 		
 		

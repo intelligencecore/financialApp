@@ -6,8 +6,9 @@ import SwiftUI
 
 
 struct TaxesView: View {
-	
-	
+	@State private var annualIncome = "" // calculator value holders
+	@State private var cityRate = ""
+	@State private var totalNet = ""
 	
 	var body: some View {
 		
@@ -70,6 +71,38 @@ struct TaxesView: View {
 					RoundedRectangle(cornerRadius: 14, style: .continuous)
 						.fill(Color.green.opacity(0.30))
 				)
+				
+				
+				
+				// table for the tax calculator
+				VStack {
+					Text("Calculate your taxes here:")
+					
+					VStack{
+						TextField( "Annual Income", text: $annualIncome )
+					}
+					VStack{
+						TextField( "Age", text: $annualIncome )
+					}
+					VStack{
+						TextField( "Tax Bracket", text: $annualIncome )
+					}
+					VStack{
+						TextField( "Result", text: $annualIncome )
+						
+						Button {
+							
+						}label: {
+							Text("Reset")
+								.foregroundColor(.red)
+						}
+					}
+				}
+				.background(RoundedRectangle(cornerRadius: 3)
+					.foregroundStyle(Color.blue) )
+				.frame(alignment: .center)
+				.background(Color.green)
+				
 				
 				
 				
