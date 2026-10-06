@@ -9,6 +9,11 @@ struct TaxesView: View {
 	@State private var annualIncome = "" // calculator value holders
 	@State private var cityRate = ""
 	@State private var totalNet = ""
+	@State private var taxRate = ""
+
+	
+	//keyboard
+	@FocusState private var isDone: Bool
 	
 	var body: some View {
 		
@@ -74,34 +79,79 @@ struct TaxesView: View {
 				
 				
 				
+				
+				
+				
+				// i need to define a switch to get the tax bracket of theu user
+				// if income <= 100k tax bracket is 22% (Example, real thing might differ)
+				
 				// table for the tax calculator
 				VStack {
-					Text("Calculate your taxes here:")
+					
+					Text("Calculate your federal taxes here:")
 					
 					VStack{
-						TextField( "Annual Income", text: $annualIncome )
+						TextField( "Annual Income", text: $annualIncome)
+							.background(RoundedRectangle(cornerRadius: 3)
+								.fill(Color.white))
+							.padding(.horizontal)
+						
 					}
 					VStack{
-						TextField( "Age", text: $annualIncome )
+						TextField( "City", text: $cityRate )
+							.background(RoundedRectangle(cornerRadius: 3)
+								.fill(Color.white))
+							.padding(.horizontal)
 					}
+					
+					
+					Text("You automatically fall into the: ")
+					
+
 					VStack{
-						TextField( "Tax Bracket", text: $annualIncome )
+						TextField( "Tax Bracket", text: $taxRate )
+							.background(RoundedRectangle(cornerRadius: 3)
+								.fill(Color.white))
+							.padding(.horizontal)
 					}
+					
+					Text("Your estimated net payment after taxes would be:")
+						.font(.custom("size", fixedSize: 15))
+						.bold()
+					
+					
 					VStack{
 						TextField( "Result", text: $annualIncome )
+							.background(RoundedRectangle(cornerRadius: 3)
+								.fill(Color.white))
+							.padding(.horizontal)
 						
 						Button {
-							
+							annualIncome = " "
 						}label: {
 							Text("Reset")
 								.foregroundColor(.red)
 						}
 					}
 				}
-				.background(RoundedRectangle(cornerRadius: 3)
-					.foregroundStyle(Color.blue) )
-				.frame(alignment: .center)
-				.background(Color.green)
+				.background(RoundedRectangle(cornerRadius: 14)
+					.fill(Color.green.opacity(0.30) ))
+//				.frame(alignment: .center)
+				
+				
+				
+				// keyboard done button
+				.toolbar {
+					ToolbarItemGroup(placement: .keyboard) {
+						Spacer()
+						Button("Done") { isDone = true }
+					}
+				}
+				
+				
+				Section{
+					Text("Tax brackets are continuous and will vary the more income you have")
+				}
 				
 				
 				
