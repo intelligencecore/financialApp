@@ -6,10 +6,12 @@ import SwiftUI
 
 
 struct TaxesView: View {
-	@State private var annualIncome = "" // calculator value holders
-	@State private var cityRate = ""
-	@State private var totalNet = ""
-	@State private var taxRate = ""
+	@State private var annualIncome = " " // calculator value holders
+	@State private var cityRate = " "
+	@State private var totalNet = " "
+	@State private var taxRate = " "
+	@State private var exitResult = " "
+	
 
 	
 	//keyboard
@@ -88,49 +90,72 @@ struct TaxesView: View {
 				// table for the tax calculator
 				VStack {
 					
-					Text("Calculate your federal taxes here:")
-					
 					VStack{
+						
+
+						Text("Calculate your federal taxes here:")
+						
 						TextField( "Annual Income", text: $annualIncome)
-							.background(RoundedRectangle(cornerRadius: 3)
-								.fill(Color.white))
+							.background(RoundedRectangle(cornerRadius: 6)
+							.fill(Color.white)
+							.frame(height: 40))
 							.padding(.horizontal)
 						
 					}
+					.padding()
+					
+					
 					VStack{
 						TextField( "City", text: $cityRate )
 							.background(RoundedRectangle(cornerRadius: 3)
-								.fill(Color.white))
+								.fill(Color.white)
+								.frame(height: 40))
 							.padding(.horizontal)
 					}
+					.padding()
 					
 					
-					Text("You automatically fall into the: ")
-					
-
 					VStack{
+					
+						Text("You automatically fall into the: ")
+						
 						TextField( "Tax Bracket", text: $taxRate )
 							.background(RoundedRectangle(cornerRadius: 3)
-								.fill(Color.white))
+								.fill(Color.white)
+								.frame(height: 40))
 							.padding(.horizontal)
 					}
+					.padding()
+					
+					
+					
 					
 					Text("Your estimated net payment after taxes would be:")
 						.font(.custom("size", fixedSize: 15))
 						.bold()
 					
 					
+					
 					VStack{
-						TextField( "Result", text: $annualIncome )
+						TextField( "Result", text: $exitResult )
 							.background(RoundedRectangle(cornerRadius: 3)
-								.fill(Color.white))
+								.fill(Color.primary)
+								.frame(height: 40)
+								.padding(.horizontal))
 							.padding(.horizontal)
+							.padding(.top, 5)
 						
 						Button {
 							annualIncome = " "
+							taxRate = " "
+							cityRate = " "
 						}label: {
 							Text("Reset")
 								.foregroundColor(.red)
+								.background(RoundedRectangle(cornerRadius: 3)
+									.foregroundStyle(Color.green))
+								.buttonStyle(.glass)
+								.padding(.top, 10)
 						}
 					}
 				}
@@ -149,9 +174,9 @@ struct TaxesView: View {
 				}
 				
 				
-				Section{
-					Text("Tax brackets are continuous and will vary the more income you have")
-				}
+				// Section{
+					 // Text("Tax brackets are continuous and will vary the more income you have")
+				 // }
 				
 				
 				
