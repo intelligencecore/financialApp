@@ -4,7 +4,7 @@ struct SettingsView: View {
 	@AppStorage("useDarkMode") private var useDarkMode = false
 	@AppStorage("showDefinitions") private var showDefinitions = true
 	@State private var versValue = 0.1
-
+	@State private var selectedColor = Color.white
 	var body: some View {
 		Form {
 			Section("Appearance") {
@@ -39,6 +39,9 @@ struct SettingsView: View {
 				)
 				.font(.footnote)
 				.foregroundStyle(.secondary)
+				
+				ColorPicker("App colors", selection: $selectedColor)
+				
 			}
 			.padding()
 			

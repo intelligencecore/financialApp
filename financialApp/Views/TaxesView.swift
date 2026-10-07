@@ -139,16 +139,17 @@ struct TaxesView: View {
 					VStack{
 						TextField( "Result", text: $exitResult )
 							.background(RoundedRectangle(cornerRadius: 3)
-								.fill(Color.primary)
+								.fill(Color.white)
 								.frame(height: 40)
 								.padding(.horizontal))
 							.padding(.horizontal)
 							.padding(.top, 5)
 						
 						Button {
-							annualIncome = " "
-							taxRate = " "
-							cityRate = " "
+							annualIncome = ""
+							taxRate = ""
+							cityRate = ""
+							exitResult = ""
 						}label: {
 							Text("Reset")
 								.foregroundColor(.red)
