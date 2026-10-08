@@ -31,7 +31,11 @@ struct TaxesView: View {
 				
 				VStack {
 					Text("A tax is a mandatory payment made by individuals or businesses to a government (local, state, or federal). Governments use this collected money to fund public services, build infrastructure (like roads and schools), and maintain safety programs.")
-					
+					Button {
+						Link(destination: URL(string: "https://apps.irs.gov/app/understandingTaxes/student/glossary.jsp")!)
+					}label:{
+						Text("Learn more at the IRS.GOV website")
+					}
 				}
 				.font(.body)
 				.lineSpacing(3)

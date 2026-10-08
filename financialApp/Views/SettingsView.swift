@@ -3,8 +3,17 @@ import SwiftUI
 struct SettingsView: View {
 	@AppStorage("useDarkMode") private var useDarkMode = false
 	@AppStorage("showDefinitions") private var showDefinitions = true
-	@State private var versValue = 0.1
+	@State private var versValue = 0.9
 	@State private var selectedColor = Color.white
+	
+	
+	// @AppStorage("userColor") private var userColor = .clear
+
+	
+	
+	
+	
+	
 	var body: some View {
 		Form {
 			Section("Appearance") {
@@ -25,11 +34,7 @@ struct SettingsView: View {
 
 				Link(
 					"Github Repo",
-					destination: URL(
-						string:
-							"https://github.com/intelligencecore/financialApp"
-					)!
-				)
+					destination: URL( string: "https://github.com/intelligencecore/financialApp")!)
 			}
 			
 			
@@ -40,7 +45,22 @@ struct SettingsView: View {
 				.font(.footnote)
 				.foregroundStyle(.secondary)
 				
-				ColorPicker("App colors", selection: $selectedColor)
+				
+				
+				HStack {
+						// sheet with the color picker
+					ColorPicker("App colors", selection: $selectedColor)
+						.padding()
+//					Text("Selected color:")
+					RoundedRectangle(cornerRadius: 10)
+						.fill(selectedColor)
+					
+					
+					
+					
+				}
+				
+				
 				
 			}
 			.padding()
