@@ -32,7 +32,7 @@ struct TaxesView: View {
 				VStack {
 					Text("A tax is a mandatory payment made by individuals or businesses to a government (local, state, or federal). Governments use this collected money to fund public services, build infrastructure (like roads and schools), and maintain safety programs.")
 					Button {
-						Link(destination: URL(string: "https://apps.irs.gov/app/understandingTaxes/student/glossary.jsp")!)
+						Link("", destination: URL(string: "https://apps.irs.gov/app/understandingTaxes/student/glossary.jsp")!)
 					}label:{
 						Text("Learn more at the IRS.GOV website")
 					}
@@ -82,6 +82,7 @@ struct TaxesView: View {
 					RoundedRectangle(cornerRadius: 14, style: .continuous)
 						.fill(Color.green.opacity(0.30))
 				)
+				.glassEffect()
 				
 				
 				
@@ -91,6 +92,8 @@ struct TaxesView: View {
 				// i need to define a switch to get the tax bracket of theu user
 				// if income <= 100k tax bracket is 22% (Example, real thing might differ)
 				
+				
+				// refactor the table calculator (the percentage hsould be in a small box aside the main result)
 				// table for the tax calculator
 				VStack {
 					
