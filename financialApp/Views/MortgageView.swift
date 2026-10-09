@@ -156,7 +156,7 @@ struct MortgageView: View {
 
 					Section {
 						Text(
-							"Rates go up and down and you always should check your own rate."
+							"Rates go up and down and you always should check your own."
 						)
 						.bold()
 					}

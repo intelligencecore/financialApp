@@ -29,30 +29,9 @@
 		133BA74B306227A800723AD4 /* financialAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = financialAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		133555E430786C4300CC4651 /* Exceptions for "financialApp" folder in "financialApp" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				MathHelper.swift,
-			);
-			target = 133BA733306227A700723AD4 /* financialApp */;
-		};
-		133555E530786C4300CC4651 /* Exceptions for "financialApp" folder in "financialAppUITests" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				MathHelper.swift,
-			);
-			target = 133BA74A306227A800723AD4 /* financialAppUITests */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		133BA736306227A700723AD4 /* financialApp */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				133555E430786C4300CC4651 /* Exceptions for "financialApp" folder in "financialApp" target */,
-				133555E530786C4300CC4651 /* Exceptions for "financialApp" folder in "financialAppUITests" target */,
-			);
 			path = financialApp;
 			sourceTree = "<group>";
 		};

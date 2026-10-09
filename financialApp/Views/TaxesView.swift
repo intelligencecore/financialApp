@@ -29,22 +29,30 @@ struct TaxesView: View {
 					.font(.title3)
 					.bold()
 				
-				VStack {
+				VStack(alignment: .leading, spacing: 16) {
 					Text("A tax is a mandatory payment made by individuals or businesses to a government (local, state, or federal). Governments use this collected money to fund public services, build infrastructure (like roads and schools), and maintain safety programs.")
-					Button {
-						Link("", destination: URL(string: "https://apps.irs.gov/app/understandingTaxes/student/glossary.jsp")!)
-					}label:{
-						Text("Learn more at the IRS.GOV website")
+						.font(.body)
+						.lineSpacing(3)
+						.foregroundColor(.primary)
+					
+					Link(destination: URL(string: "https://constitution.congress.gov/constitution/amendment-16/")!) {
+						HStack(spacing: 4) {
+							Text("Learn more")
+							Image(systemName: "arrow.up.forward.app")
+						}
+						.font(.body)
+						.fontWeight(.semibold)
+						.foregroundColor(.green)
 					}
 				}
-				.font(.body)
-				.lineSpacing(3)
 				.padding(16)
 				.frame(maxWidth: .infinity, alignment: .leading)
 				.background(
 					RoundedRectangle(cornerRadius: 14, style: .continuous)
-						.fill(Color.green.opacity(0.30))
+						.fill(Color(.systemGreen).opacity(0.15)) // Improved readability contrast
 				)
+				
+
 				
 				Text("But why do I need to pay it?")
 					.font(.title3)
@@ -72,8 +80,8 @@ struct TaxesView: View {
 				
 				
 				VStack{
-				Text("You have to pay three main types of income-based taxes: Federal Income Tax (which uses a progressive system with rates ranging from 10% to 37% based on your income brackets), FICA Payroll Taxes (which consist of a 6.2% Social Security tax on earnings up to $184,500 and a 1.45% Medicare tax), and State and Local Income Taxes (which vary completely depending on where you live). Additionally, you are subject to consumption and ownership costs like sales and property taxes depending on your local municipal laws.")
-			}
+					Text("You have to pay three main types of income-based taxes: Federal Income Tax (which uses a progressive system with rates ranging from 10% to 37% based on your income brackets), FICA Payroll Taxes (which consist of a 6.2% Social Security tax on earnings up to $184,500 and a 1.45% Medicare tax), and State and Local Income Taxes (which vary completely depending on where you live). Additionally, you are subject to consumption and ownership costs like sales and property taxes depending on your local municipal laws.")
+				}
 				.font(.body)
 				.lineSpacing(3)
 				.padding(16)
@@ -82,30 +90,29 @@ struct TaxesView: View {
 					RoundedRectangle(cornerRadius: 14, style: .continuous)
 						.fill(Color.green.opacity(0.30))
 				)
-				.glassEffect()
 				
 				
 				
 				
 				
 				
-				// i need to define a switch to get the tax bracket of theu user
-				// if income <= 100k tax bracket is 22% (Example, real thing might differ)
+					// i need to define a switch to get the tax bracket of theu user
+					// if income <= 100k tax bracket is 22% (Example, real thing might differ)
 				
 				
-				// refactor the table calculator (the percentage hsould be in a small box aside the main result)
-				// table for the tax calculator
+					// refactor the table calculator (the percentage hsould be in a small box aside the main result)
+					// table for the tax calculator
 				VStack {
 					
 					VStack{
 						
-
+						
 						Text("Calculate your federal taxes here:")
 						
 						TextField( "Annual Income", text: $annualIncome)
 							.background(RoundedRectangle(cornerRadius: 6)
-							.fill(Color.white)
-							.frame(height: 40))
+								.fill(Color.white)
+								.frame(height: 40))
 							.padding(.horizontal)
 						
 					}
@@ -123,7 +130,7 @@ struct TaxesView: View {
 					
 					
 					VStack{
-					
+						
 						Text("You automatically fall into the: ")
 						
 						TextField( "Tax Bracket", text: $taxRate )
@@ -169,11 +176,11 @@ struct TaxesView: View {
 				}
 				.background(RoundedRectangle(cornerRadius: 14)
 					.fill(Color.green.opacity(0.30) ))
-//				.frame(alignment: .center)
+					//				.frame(alignment: .center)
 				
 				
 				
-				// keyboard done button
+					// keyboard done button
 				.toolbar {
 					ToolbarItemGroup(placement: .keyboard) {
 						Spacer()
@@ -182,9 +189,19 @@ struct TaxesView: View {
 				}
 				
 				
-				// Section{
-					 // Text("Tax brackets are continuous and will vary the more income you have")
-				 // }
+					// Section{
+					// Text("Tax brackets are continuous and will vary the more income you have")
+					// }
+				
+				
+				
+				
+				
+				Section {
+					
+					Text("This app does not provide financial services or generate monetary gain for its users. It was created solely as a hobby project for educational and learning purposes.")
+				}
+				.fontWidth(.condensed)
 				
 				
 				

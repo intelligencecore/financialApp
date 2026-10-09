@@ -93,13 +93,18 @@ struct SavingsView: View {
 					}
 				
 				
-				// Image("placeholder")
+				// add image here
 			}
 			.padding()
 			
 			
-
-			
+			// add an illustration showing how compound interest works (why is best to save ASAP)
+			VStack(alignment: .center){
+				
+				Text("For example if you put you savings in an account for 5 years this initial invesment will grow to... ")
+				
+				
+			}
 			
 			
 			
