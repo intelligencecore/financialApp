@@ -159,6 +159,35 @@ struct TaxesView: View {
 							.padding(.horizontal)
 							.padding(.top, 5)
 						
+						
+						
+							// Calculator foor the tax bracket
+								// read annualIncome, convert, compute, write to exitResult
+						Button {
+							
+				func calculate(_ userInput: Double, _ userTaxBracket: Double) -> Double {
+							
+					return 100
+							}
+						}label:{
+							
+							Text("Calculate Tax")
+								// read annualIncome, convert, compute, write to exitResult
+						}
+						.padding()
+						.buttonStyle(GlassButtonStyle())
+						
+						private var estimatedTax: String {
+								// read annualIncome, convert, compute, return the string
+						}
+						
+						
+						
+						
+						
+						
+						
+						
 						Button {
 							annualIncome = ""
 							taxRate = ""
@@ -200,9 +229,13 @@ struct TaxesView: View {
 				Section {
 					
 					Text("This app does not provide financial services or generate monetary gain for its users. It was created solely as a hobby project for educational and learning purposes.")
+						.padding()
 				}
 				.fontWidth(.condensed)
-				
+				.background(
+					RoundedRectangle(cornerRadius: 14, style: .continuous)
+						.fill(Color("CustomBeige"))
+				)
 				
 				
 				
@@ -213,6 +246,33 @@ struct TaxesView: View {
 		.navigationTitle("Taxes, Why?")
 		.background(.blue.opacity(0.3))
 	}
+	
+	
+	// enums
+	
+	enum bracket {
+		
+		case ten, twenty
+		
+	}
+	
+	
+	
+	
+	// methods of the app
+	
+	
+	
+	
+	
+	func calculate(_ input: Double, _ bracket: Double) -> Double {
+		
+
+		return input * bracket
+	}
+
+	
+	
 }
 
 #Preview {
