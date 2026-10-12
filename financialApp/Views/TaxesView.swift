@@ -107,7 +107,10 @@ struct TaxesView: View {
 					VStack{
 						
 						
-						Text("Calculate your federal taxes here:")
+						Text("Federal Tax Calculator")
+							.font(.headline)
+							.foregroundColor(.secondary)
+							.frame(maxWidth: .infinity, alignment: .leading)
 						
 						TextField( "Annual Income", text: $annualIncome)
 							.background(RoundedRectangle(cornerRadius: 6)
@@ -177,9 +180,13 @@ struct TaxesView: View {
 						.padding()
 						.buttonStyle(GlassButtonStyle())
 						
-						private var estimatedTax: String {
-								// read annualIncome, convert, compute, return the string
-						}
+						
+						
+						
+						
+//						private var estimatedTax: String {
+//								// read annualIncome, convert, compute, return the string
+//						}
 						
 						
 						
