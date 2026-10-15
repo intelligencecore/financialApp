@@ -102,6 +102,7 @@ struct SavingsView: View {
 			VStack(alignment: .center){
 				
 				Text("For example if you put you savings in an account for 5 years this initial invesment will grow to... ")
+					.padding(.all, 10)
 				
 				
 			}
