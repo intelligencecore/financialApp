@@ -92,9 +92,15 @@ struct SavingsView: View {
 							.foregroundStyle(Color.green.opacity(0.9))
 					}
 				
+				Image("certificateofdeposit")
+					.resizable()
+					.scaledToFit()
+					.frame(maxWidth: .infinity)
+					.clipShape(RoundedRectangle(cornerRadius: 14))
 				
-				// add image here
 			}
+				// add image here
+			
 			.padding()
 			
 			
@@ -102,6 +108,10 @@ struct SavingsView: View {
 			VStack(alignment: .center){
 				
 				Text("For example if you put you savings in an account for 5 years this initial invesment will grow to... ")
+					.background{
+						RoundedRectangle(cornerRadius: 10, style: .continuous)
+						Color.red
+					}
 					.padding(.all, 10)
 				
 				
