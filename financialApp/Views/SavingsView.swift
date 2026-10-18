@@ -90,14 +90,13 @@ struct SavingsView: View {
 					.background{
 						RoundedRectangle(cornerRadius: 14)
 							.foregroundStyle(Color.green.opacity(0.9))
+
 					}
-				
 				Image("certificateofdeposit")
 					.resizable()
 					.scaledToFit()
 					.frame(maxWidth: .infinity)
 					.clipShape(RoundedRectangle(cornerRadius: 14))
-				
 			}
 				// add image here
 			
@@ -107,7 +106,7 @@ struct SavingsView: View {
 			// add an illustration showing how compound interest works (why is best to save ASAP)
 			VStack(alignment: .center){
 				
-				Text("For example if you put you savings in an account for 5 years this initial invesment will grow to... ")
+				Text("For example if you put you savings in a HYSA account for 5 years this initial invesment will grow to...")
 					.background{
 						RoundedRectangle(cornerRadius: 10, style: .continuous)
 						Color.red
