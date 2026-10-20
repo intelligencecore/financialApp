@@ -6,17 +6,10 @@ final class financialAppTests: XCTestCase {
 	
 		// testing both calculators on the SavingsView() and the TaxesView()
 	
-	
-	
-	
-	
-		// test the button for the github repo
-	
-	
 	 //arrange, act, assert!
 	
 	
-	
+
 
 	
 	
