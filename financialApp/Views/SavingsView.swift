@@ -133,6 +133,10 @@ struct SavingsView: View {
 						TextField("0.0", text: $apy)
 							.keyboardType(.decimalPad)
 							.textFieldStyle(.roundedBorder)
+						
+						
+						
+						
 					}
 					
 						// Monthly Deposit Input
@@ -192,7 +196,7 @@ struct SavingsView: View {
 			.frame(width: 375)
 			.background {
 				RoundedRectangle(cornerRadius: 16, style: .continuous)
-					.fill(Color.green.gradient) // Uses a nice modern subtle gradient
+					.fill(Color.green.gradient)
 			}
 			.shadow(radius: 10)
 

@@ -48,11 +48,23 @@ struct CreditCardView:View {
 			}
 			
 			
+			
+			VStack {
+				
+				Text("Is in your best interest not to pay interest!")
+					.fontWeight(.heavy)
+					.bold()
+				
+				
+				
+				
+			}
+			
+			//Credit card interest calculator
 			VStack {
 				Text("Credit Card Interest Calculator")
 					.fontWeight(.semibold)
 					.padding()
-					// .frame(maxWidth: .infinity, alignment: .leading)
 				
 				
 				
@@ -77,6 +89,15 @@ struct CreditCardView:View {
 		.background(Color("CustomYellow"))
 		
 	}
+	
+	
+		// call the MathHelper file to calculate the interest with the calculator
+	
+	 // MathHelper.interestCalculator(balance: <#T##Double?#>, annualInterestPercentage: <#T##Double?#>, daysInCycle: <#T##Int?#>)
+	
+	
+	
+	
 	
 	
 }
