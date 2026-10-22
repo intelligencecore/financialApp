@@ -9,8 +9,8 @@ struct MathHelper{
 	
 	
 	static func savingsReturn(startingBalance: Double, apy: Double, years: Int, monthlyDeposit: Double) -> Double {
-		
 		// valudation of the values prior to their use
+		// this function is not working properly
 		guard startingBalance >= 0.0, apy >= 0.0, years > 0, monthlyDeposit >= 0.0 else {return -1}
 		
 		let totalMonths = years * 12

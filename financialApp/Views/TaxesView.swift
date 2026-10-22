@@ -12,9 +12,9 @@ struct TaxesView: View {
 	@State private var taxRate = " "
 	@State private var exitResult = " "
 	
-
 	
-	//keyboard
+	
+		//keyboard
 	@FocusState private var isDone: Bool
 	
 	var body: some View {
@@ -52,7 +52,7 @@ struct TaxesView: View {
 						.fill(Color(.systemGreen).opacity(0.15)) // Improved readability contrast
 				)
 				
-
+				
 				
 				Text("But why do I need to pay it?")
 					.font(.title3)
@@ -164,13 +164,13 @@ struct TaxesView: View {
 						
 						
 						
-							// Calculator foor the tax bracket
-								// read annualIncome, convert, compute, write to exitResult
+							// Calculator for the tax bracket
+							// read annualIncome, convert, compute, write to exitResult
 						Button {
 							
-				func calculate(_ userInput: Double, _ userTaxBracket: Double) -> Double {
-							
-					return 100
+							func calculate(_ userInput: Double, _ userTaxBracket: Double) -> Double {
+								
+								return 100
 							}
 						}label:{
 							
@@ -179,20 +179,6 @@ struct TaxesView: View {
 						}
 						.padding()
 						.buttonStyle(GlassButtonStyle())
-						
-						
-						
-						
-						
-//						private var estimatedTax: String {
-//								// read annualIncome, convert, compute, return the string
-//						}
-						
-						
-						
-						
-						
-						
 						
 						
 						Button {
@@ -225,59 +211,15 @@ struct TaxesView: View {
 				}
 				
 				
-					// Section{
-					// Text("Tax brackets are continuous and will vary the more income you have")
-					// }
-				
-				
-				
-				
-				
-				Section {
-					
-					Text("This app does not provide financial services or generate monetary gain for its users. It was created solely as a hobby project for educational and learning purposes.")
-						.padding()
-				}
-				.fontWidth(.condensed)
-				.background(
-					RoundedRectangle(cornerRadius: 14, style: .continuous)
-						.fill(Color("CustomBeige"))
-				)
-				
-				
-				
 			}
-			.padding()
-			
+			.navigationTitle("Taxes, Why?")
 		}
-		.navigationTitle("Taxes, Why?")
 		.background(.blue.opacity(0.3))
 	}
 	
-	
-	// enums
-	
-	enum bracket {
-		
-		case ten, twenty
-		
-	}
+	// methods go here
 	
 	
-	
-	
-	// methods of the app
-	
-	
-	
-	
-	
-	func calculate(_ input: Double, _ bracket: Double) -> Double {
-		
-
-		return input * bracket
-	}
-
 	
 	
 }

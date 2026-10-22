@@ -7,8 +7,7 @@ struct SettingsView: View {
 	@State private var selectedColor = Color.white
 	
 	
-	// @AppStorage("userColor") private var userColor = .clear
-
+	
 	
 	
 	
@@ -19,19 +18,19 @@ struct SettingsView: View {
 			Section("Appearance") {
 				Toggle("Dark mode", isOn: $useDarkMode)
 			}
-
+			
 			Section("Reading") {
 				Toggle("Show inline definitions", isOn: $showDefinitions)
 			}
-
+			
 			Section("About") {
-				//Versioning and info
+					//Versioning and info
 				NavigationLink {
 					AboutView()
 				} label: {
 					LabeledContent("Version", value: String(versValue))
 				}
-
+				
 				Link(
 					"Github Repo",
 					destination: URL( string: "https://github.com/intelligencecore/financialApp")!)
@@ -51,7 +50,7 @@ struct SettingsView: View {
 						// sheet with the color picker
 					ColorPicker("App colors", selection: $selectedColor)
 						.padding()
-//					Text("Selected color:")
+						//					Text("Selected color:")
 					RoundedRectangle(cornerRadius: 10)
 						.fill(selectedColor)
 					
@@ -65,19 +64,29 @@ struct SettingsView: View {
 			}
 			.padding()
 			
-
+			
 			Section {
-				Text(
-					"This app is for educational purposes only."
-				)
-				.font(.footnote)
-				.foregroundStyle(.secondary)
-				.bold()
+				
+				Text("This app does not provide financial services or generate monetary gain for its users. It was created solely as a hobby project for educational and learning purposes.")
+					.padding()
 			}
+			.fontWidth(.condensed)
+			.background(
+				RoundedRectangle(cornerRadius: 14, style: .continuous)
+					.fill(Color("CustomBeige"))
+			)
+			
+			
+			
 		}
+		.padding()
+		
 		.navigationTitle("Settings")
+		
 	}
 }
+	
+
 
 #Preview {
 	SettingsView()

@@ -1,10 +1,3 @@
-	//
-	//  SavingsView.swift
-	//  financialApp
-	//
-	//  Created by Richier on 10/2/26.
-	//
-
 import SwiftUI
 
 struct SavingsView: View {
@@ -16,7 +9,7 @@ struct SavingsView: View {
 	@State private var years = ""
 	@State private var monthlyDeposit = ""
 	@State private var totalBalanceResult: Double = 0.0
-	
+	@FocusState private var isDonePressed: Bool
 	
 	var body: some View {
 		
@@ -104,90 +97,124 @@ struct SavingsView: View {
 					.frame(maxWidth: .infinity)
 					.clipShape(RoundedRectangle(cornerRadius: 14))
 			}
-				// add image here
-			
 			.padding()
 			
 			
-				// add an illustration showing how compound interest works (why is best to save ASAP)
-				//			VStack(alignment: .center){
-				//
-				//				Text("For example if you put you savings in a HYSA account for 5 years this initial invesment will grow to...")
-				//					.background{
-				//						RoundedRectangle(cornerRadius: 10, style: .continuous)
-				//						Color.red
-				//					}
-				//					.padding(.all, 10)
-				//
-				//
-				//			}
 			
 			
 			
-			
-			
-			
-			VStack {
+			VStack(spacing: 20) {
 				Text("Savings Calculator")
-					.font(.headline)
+					.font(.title2)
 					.bold()
+					.foregroundColor(.white)
+					.padding(.top, 10)
 				
-				Text("Enter the starting balance here")
-					.font(.headline)
-					.bold()
+					// Grouping the inputs inside a Form-style container
+				VStack(alignment: .leading, spacing: 16) {
+					
+						// Starting Balance Input
+					VStack(alignment: .leading, spacing: 6) {
+						Text("Starting Balance")
+							.font(.subheadline)
+							.bold()
+							.foregroundColor(.white.opacity(0.9))
+						TextField("$0.00", text: $startingBalance)
+							.keyboardType(.decimalPad)
+							.textFieldStyle(.roundedBorder)
+					}
+					
+						// APY Input
+					VStack(alignment: .leading, spacing: 6) {
+						Text("APY (%)")
+							.font(.subheadline)
+							.bold()
+							.foregroundColor(.white.opacity(0.9))
+						TextField("0.0", text: $apy)
+							.keyboardType(.decimalPad)
+							.textFieldStyle(.roundedBorder)
+					}
+					
+						// Monthly Deposit Input
+					VStack(alignment: .leading, spacing: 6) {
+						Text("Monthly Deposit")
+							.font(.subheadline)
+							.bold()
+							.foregroundColor(.white.opacity(0.9))
+						TextField("$0.00", text: $monthlyDeposit)
+							.keyboardType(.decimalPad)
+							.textFieldStyle(.roundedBorder)
+					}
+					
+						// Years Input
+					VStack(alignment: .leading, spacing: 6) {
+						Text("Years to Grow")
+							.font(.subheadline)
+							.bold()
+							.foregroundColor(.white.opacity(0.9))
+						TextField("0", text: $years)
+							.keyboardType(.numberPad)
+							.textFieldStyle(.roundedBorder)
+					}
+				}
+				.padding(.horizontal)
 				
-				TextField("", text: $startingBalance)
+					// Result Display
+				VStack(spacing: 3) {
+					Text("Total Balance")
+						.font(.caption)
+						.bold()
+						.foregroundColor(.gray)
+					
+					Text(totalBalanceResult, format: .currency(code: "USD"))
+						.font(.system(.title2, design: .rounded))
+						.bold()
+						.foregroundColor(.black)
+				}
+				.frame(maxWidth: .infinity)
+				.padding(.vertical, 12)
+				.background(Color.white)
+				.cornerRadius(8)
+				.padding(.horizontal)
 				
-					.padding()
-				
-				Text("Enter the APY here")
-					.font(.headline)
-					.bold()
-				
-				TextField("", text: $apy)
-					.padding()
-				
-				Text("Enter the monthly deposit here")
-					.font(.headline)
-					.bold()
-				
-				TextField("", text: $monthlyDeposit)
-					.padding()
-				
-				Text("Enter the years to grow here")
-					.font(.headline)
-					.bold()
-				
-				TextField("", text: $years)
-					.padding()
-				
-				Text(totalBalanceResult, format: .currency(code: "USD"))
-					.padding()
-				
+					// Calculate Button
 				Button {
 					calculate()
 				} label: {
 					Text("Calculate")
+						.bold()
+						.frame(maxWidth: .infinity)
 				}
 				.buttonStyle(GlassButtonStyle())
+				.padding(.horizontal)
+				.padding(.bottom, 10)
 			}
 			.frame(width: 375)
 			.background {
-				RoundedRectangle(cornerRadius: 10, style: .continuous)
-					.foregroundStyle(.green)
+				RoundedRectangle(cornerRadius: 16, style: .continuous)
+					.fill(Color.green.gradient) // Uses a nice modern subtle gradient
 			}
+			.shadow(radius: 10)
+
 			
-			
-			
-		}
+				
+			}
 		.navigationTitle("Savings")
-		.navigationBarTitleDisplayMode(.automatic)
-		.background {
-			Color.green.opacity(0.2)
-				.ignoresSafeArea()
+			.navigationBarTitleDisplayMode(.automatic)
+			.background {
+				Color.green.opacity(0.2)
+					.ignoresSafeArea()
+			}
+			.toolbar {
+				ToolbarItemGroup(placement: .keyboard) {
+					Spacer()
+					Button("Done") { isDonePressed = true }
+				}
 		}
 	}
+
 	
+	// function connecting and validating the inputs from the Mathhelper function to calculate savings
 	private func calculate() {
 		guard let balance = Double(startingBalance),
 			  let annualpy = Double(apy),
