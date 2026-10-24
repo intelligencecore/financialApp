@@ -6,6 +6,7 @@ import SwiftUI
 
 struct CreditCardView:View {
 	
+	@State private var inputBalance = ""
 	
 
 	var body: some  View {
@@ -66,6 +67,84 @@ struct CreditCardView:View {
 					.fontWeight(.semibold)
 					.padding()
 				
+				// take in the balance
+				VStack(alignment: .leading, spacing: 16){
+					Text("Input Your Balance")
+						.font(.title2)
+						.bold()
+						.padding(.horizontal)
+					
+					//textfield for the input
+					TextField("e.g. 1000", text: $inputBalance)
+						.textFieldStyle(.bordered)
+						.foregroundStyle(Color.white)
+						.padding(.horizontal)
+					
+					
+				}
+				
+				// take in the days in the month
+				VStack(alignment: .leading, spacing: 16){
+					Text("Select how many days")
+						.font(.title2)
+						.bold()
+						.padding(.horizontal)
+					
+					
+					HStack{
+						
+						
+						
+						Button{
+							
+							
+						}label:{
+							
+							Text("28 Days")
+							
+						}
+						.padding(.horizontal)
+						
+						Spacer()
+						
+						
+						
+						Button{
+							
+							
+						}label:{
+							
+							Text("30 Days")
+						}
+						.padding(.horizontal)
+						
+						Spacer()
+					
+						Button{
+							
+							
+						}label:{
+							
+							Text("31 Days")
+							
+						}
+					
+					
+					
+					}
+					.padding(.horizontal)
+					
+					
+					
+					
+					
+					
+					
+					// include a selection list here with the days (could be an enum)
+					
+				}
+				
+
 				
 				
 				
@@ -74,7 +153,7 @@ struct CreditCardView:View {
 			.frame(width: 350, height: 200 )
 			.background(
 				RoundedRectangle(cornerRadius: 14)
-					.fill(Color.blue)
+					.fill(Color.blue.opacity(0.4))
 					.padding(.all, 10)
 			)
 			

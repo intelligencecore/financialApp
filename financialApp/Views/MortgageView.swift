@@ -1,31 +1,25 @@
-//
-//  MortgageView.swift
-//  financialApp
-//
-//  Created by Richier on 9/25/26.
-//
-
 import SwiftUI
 
 struct MortgageView: View {
 	@State private var homeValue = ""
-	@State private var downPayment = ""
+	@State private var HomePrice = ""
 	@State private var loanAmount = ""
 	@State private var interestRate = ""
 	@State private var fieldColor = Color.primary
-//	@State private var settingsPickerColor: Color
+	@State private var downPayment = ""
+	@State private var totalBalanceResult: Double = 0.0
+		//	@State private var settingsPickerColor: Color
 	@FocusState private var isDone: Bool
 	
-
 	var body: some View {
 		ScrollView {
 			VStack(spacing: 20) {
-
+				
 				Text("What is that?")
 					.font(.title3)
 					.fontWeight(.heavy)
 					.frame(maxWidth: .infinity, alignment: .leading)
-
+				
 				VStack {
 					Text(
 						"A mortgage is a specialized loan used to purchase or maintain a home, land, or other types of real estate, where the property itself serves as collateral. The borrower agrees to pay the lender back over a set period, typically 15 or 30 years, through regular payments divided into principal and interest. If the borrower fails to make these payments, the lender holds the legal right to seize the property through a process known as foreclosure."
@@ -36,141 +30,154 @@ struct MortgageView: View {
 					)
 					.padding()
 				}
-
+				
 				VStack {
 					Text("Check your rate and payment below:")
 						.bold()
 				}
-
-				VStack {
-					VStack(spacing: 10) {
-						Text("Mortgage Calculator")
-							.fontWeight(.heavy)
-							.bold()
-							.font(.headline)
-
-						// Change the color of the "Home value to something that can be seen in both dark/clear mode"
-						VStack {
-							TextField("Home Value", text: $homeValue)
+				
+					//Calculator for the house
+				VStack(spacing: 16) {
+					Text("Mortgage Calculator")
+						.font(.title3)
+						.foregroundStyle(Color.black)
+						.bold()
+						.padding(.top, 12)
+					
+						// grouping stacks to for a vertical layout
+					VStack {
+						VStack(alignment: .leading, spacing: 6) {
+							
+							Text("Home Value")
+							
+							TextField("e.g. $400,000", text: $homeValue)
 								.keyboardType(.decimalPad)
-								.focused($isDone)
-								.padding()
-								.background(
-									RoundedRectangle(cornerRadius: 8).fill(
-										.secondary
-									)
-								)
+								.textFieldStyle(.roundedBorder)
+							
 						}
-						.padding(.horizontal)
-						//
-
-						VStack {
-							TextField("Down Payment", text: $downPayment)
-								.keyboardType(.decimalPad)
-								.focused($isDone)
-								.padding()
-								.background(
-									RoundedRectangle(cornerRadius: 8).fill(
-										fieldColor
-									)
-								)
-						}
-						.padding(.horizontal, 20)
-
-						VStack {
-							TextField("Loan Amount", text: $loanAmount)
-								.keyboardType(.decimalPad)
-								.focused($isDone)
-								.padding()
-								.background(
-									RoundedRectangle(cornerRadius: 8).fill(
-										fieldColor
-									)
-								)
-						}
-						.padding(.horizontal)
-						.toolbar {
-							ToolbarItemGroup(placement: .keyboard) {
-								Spacer()  // Pushes the Done button to the right
-								Button("Done") {
-									isDone = false  // Closes the keyboard
-								}
-
-							}
-						}
-
-						VStack {
-							TextField(
-								"",
-								text: $interestRate,
-								prompt: Text("Interest Rate").foregroundStyle(
-									fieldColor
-								)
-							)
-							.keyboardType(.decimalPad)
-							.focused($isDone)
-							.padding()
-							.background(
-								RoundedRectangle(cornerRadius: 8).fill(
-									fieldColor
-								)
-							)
-						}
-						.padding(.horizontal)
 						
-						VStack{
+						VStack(alignment: .leading, spacing: 6) {
+							Text("Down Payment")
+							TextField("e.g. $25,000", text: $downPayment)
+								.keyboardType(.decimalPad)
+								.textFieldStyle(.roundedBorder)
+							
+						}
+						
+						VStack(alignment: .leading, spacing: 6) {
+							Text("Loan Amount")
+							TextField("e.g. $500,000.00", text: $loanAmount)
+								.keyboardType(.decimalPad)
+								.textFieldStyle(.roundedBorder)
+							
+						}
+						
+						VStack(alignment: .leading, spacing: 6) {
+							Text("Interest Rate")
+							TextField("e.g. 6%", text: $interestRate)
+								.keyboardType(.decimalPad)
+								.textFieldStyle(.roundedBorder)
+							
+						}
+						
+						
+						Text("Total Balance")
+							.font(.caption)
+							.bold()
+							.foregroundColor(.gray)
+						
+						Text(totalBalanceResult, format: .currency(code: "USD"))
+							.font(.system(.title2, design: .rounded))
+							.bold()
+							.foregroundColor(.black)
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						HStack(spacing: 16) {
 							Button {
-								homeValue = ""
-								downPayment = ""
-								loanAmount = ""
-								interestRate = ""
+								
+							} label: {
+								Text("Get the Mortgage rate!")
+							}
+							.buttonStyle(GlassButtonStyle())
+							
+							Spacer()
+							
+							Button {
+								
 							} label: {
 								Text("Reset")
 							}
-								// .buttonStyle(GlassButtonStyle())
-						}
-						.background(
-							RoundedRectangle(cornerRadius: 10)
-								.fill(Color.black.opacity(0.3))
-						)
-						
-						
-						
-						
+							.buttonStyle(GlassButtonStyle())
+							.foregroundStyle(Color.red)
+							
+						}.padding(.horizontal)
 						
 					}
+					.padding(20)
 					.background(
 						RoundedRectangle(cornerRadius: 10)
-							.fill(Color.gray.opacity(0.3))
+							.foregroundStyle(
+								Color(red: 0.71, green: 0.64, blue: 0.40)
+							)
 					)
-					.toolbar {
-						ToolbarItemGroup(placement: .keyboard) {
-							Spacer()
-							Button("Done") { isDone = false }
-						}
-					}
- 
+						// end of the Calculator HStack
 					
-					// note to self: unify the reset button with the calculator
 					
-
-					Section {
-						Text(
-							"Rates go up and down and you always should check your own."
-						)
-						.bold()
-					}
-					.padding()
-
+					
+					
 				}
-				.padding()
+				.frame(maxWidth: .infinity)
+//				.padding(.vertical, 12)
+				.background(Color.white)
+				.cornerRadius(8)
+//				.padding(.horizontal)
+				
+				
+				
+				
+				
+			} // end of calculator VStack
+			.shadow(radius: 10)
+			
+			
+			
+			
+			Section {
+				Text(
+					"Rates go up and down and you always should check your own."
+				)
+				.bold()
 			}
+			.padding()
+			
 		}
+		.padding()
+		.background(Color("CustomBeige").ignoresSafeArea())
 		.navigationTitle("Mortgage")
 		.navigationBarTitleDisplayMode(.automatic)
-		.background(Color("CustomBeige").ignoresSafeArea())
+	}
+	
+	
+	
+	
+	
+		// operation function
+		// now i need to pass all the values so the calculation can be done on mathHelper
+	func mortgageCalculation(){
+		
+		
+		
+			//		return -1
 	}
 }
+
 
 #Preview {
 	MortgageView()

@@ -229,7 +229,7 @@ struct SavingsView: View {
 			return
 		}
 		
-			// referencing the MathHelper file
+			// referencing the MathHelper file on Models/
 		totalBalanceResult = MathHelper.savingsReturn(
 			startingBalance: balance,
 			apy: annualpy,
