@@ -19,14 +19,17 @@ struct AboutView: View {
 					.fontWeight(.bold)
 					.padding(.bottom, 50)
 					.font(.headline)
+					.padding(.top, 120)
 
 				Text(.init(systemName: "swift"))
 					.font(.system(size: 300))
 					.foregroundStyle(Color.orange)
+					.shadow(radius: 100)
 
 				Text("The Swift Programming Language")
 					.bold()
 					.font(.headline)
+				
 
 				Spacer()
 
@@ -35,7 +38,8 @@ struct AboutView: View {
 					destination: URL(string: "https://developer.apple.com/swift/")!
 				)
 				.buttonStyle(GlassButtonStyle())
-				.foregroundStyle(Color.blue)
+				.foregroundStyle(Color.orange)
+				.shadow(radius: 100)
 
 			}
 

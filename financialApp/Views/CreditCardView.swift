@@ -7,8 +7,8 @@ import SwiftUI
 struct CreditCardView:View {
 	
 	@State private var inputBalance = ""
-	
-
+	@State private var selectedSelection = 0
+	@State private var inputAPR = ""
 	var body: some  View {
 
 		ScrollView {
@@ -84,73 +84,42 @@ struct CreditCardView:View {
 				}
 				
 				// take in the days in the month
-				VStack(alignment: .leading, spacing: 16){
+				VStack(alignment: .leading, spacing: 10){
 					Text("Select how many days")
 						.font(.title2)
 						.bold()
 						.padding(.horizontal)
+								
 					
-					
-					HStack{
-						
-						
-						
-						Button{
-							
-							
-						}label:{
-							
-							Text("28 Days")
-							
-						}
-						.padding(.horizontal)
-						
-						Spacer()
-						
-						
-						
-						Button{
-							
-							
-						}label:{
-							
-							Text("30 Days")
-						}
-						.padding(.horizontal)
-						
-						Spacer()
-					
-						Button{
-							
-							
-						}label:{
-							
-							Text("31 Days")
-							
-						}
-					
-					
-					
+					Picker("Options", selection: $selectedSelection) {
+						Text("29 Days").tag(0)
+						Text("30 Days").tag(1)
+						Text("31 Days").tag(2)
 					}
-					.padding(.horizontal)
+					.pickerStyle(.segmented) // Forces the 3-button switch style
+					.foregroundStyle(Color.green.opacity(0.4))
+					.padding()
+					
+					
+					VStack(alignment: .leading) {
+						Text("Whats your APR?")
+							.bold()
+							
+					
+						TextField("Input your APR", text: $inputAPR)
+							.bold()
+							.padding()
+
+					}
 					
 					
 					
 					
-					
-					
-					
-					// include a selection list here with the days (could be an enum)
+				
+				
 					
 				}
-				
-
-				
-				
-				
-				
 			}
-			.frame(width: 350, height: 200 )
 			.background(
 				RoundedRectangle(cornerRadius: 14)
 					.fill(Color.blue.opacity(0.4))
