@@ -111,13 +111,7 @@ struct CreditCardView:View {
 							.padding()
 
 					}
-					
-					
-					
-					
-				
-				
-					
+		
 				}
 			}
 			.background(
@@ -140,9 +134,6 @@ struct CreditCardView:View {
 	
 	
 		// call the MathHelper file to calculate the interest with the calculator
-	
-	 // MathHelper.interestCalculator(balance: <#T##Double?#>, annualInterestPercentage: <#T##Double?#>, daysInCycle: <#T##Int?#>)
-	
 	
 	
 	
