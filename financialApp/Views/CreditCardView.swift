@@ -44,8 +44,8 @@ struct CreditCardView: View {
 				.padding()
 				.background(
 					RoundedRectangle(cornerRadius: 14)
-						//.fill(Color("CustomYellow"))
-						.fill(Color.gray)
+						.fill(Color.yellow.opacity(1)
+						)
 						.padding(.all, 10)
 				)
 			}
@@ -117,6 +117,7 @@ struct CreditCardView: View {
 			
 
 		}
+		.padding()
 		.navigationTitle("Credit Cards")
 		.frame(maxWidth: .infinity, maxHeight: .infinity)
 		.background(Color("CustomYellow"))
