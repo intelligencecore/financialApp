@@ -163,27 +163,46 @@ struct SavingsView: View {
 				}
 				.padding(.horizontal)
 				
+				
+				
 					// Result Display
-				VStack(spacing: 3) {
-					Text("Total Balance")
-						.font(.caption)
-						.bold()
-						.foregroundColor(.gray)
+				HStack(alignment: .bottom) { // Aligns both sides nicely at the bottom
+											 // Left Side: Balance Information
+					VStack(alignment: .leading, spacing: 3) {
+						Text("Total Balance")
+							.font(.caption)
+							.bold()
+							.foregroundColor(.gray)
+						
+						Text(totalBalanceResult, format: .currency(code: "USD"))
+							.font(.system(.title2, design: .rounded))
+							.bold()
+							.foregroundColor(.black)
+					}
 					
-					Text(totalBalanceResult, format: .currency(code: "USD"))
-						.font(.system(.title2, design: .rounded))
-						.bold()
-						.foregroundColor(.black)
+					Spacer() // Pushes the next stack to the far right edge
+					
+						// Right Side: Interest Information
+					VStack(alignment: .trailing, spacing: 3) {
+						Text("Total Interest Accrued")
+							.font(.caption)
+							.bold()
+							.foregroundColor(.gray)
+						
+				Text("0.0") // Add interest varialble here
+						//Text(, format: .currency(code: "USD"))
+							.font(.system(.title2, design: .rounded))
+							.bold()
+							.foregroundColor(.black)
+					}
 				}
 				.frame(maxWidth: .infinity)
 				.padding(.vertical, 12)
+				.padding(.horizontal, 16)
 				.background(Color.white)
 				.cornerRadius(8)
 				.padding(.horizontal)
-				
-				
-				
-				
+					
 				
 				
 				
@@ -237,7 +256,7 @@ struct SavingsView: View {
 		}
 		
 			// referencing the MathHelper file on Models/
-		totalBalanceResult = MathHelper.savingsReturn(
+		totalBalanceResult = MathHelper.savingsCalculator(
 			startingBalance: balance,
 			apy: annualpy,
 			years: yearCount,

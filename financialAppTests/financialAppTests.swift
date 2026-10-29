@@ -12,7 +12,7 @@ final class financialAppTests: XCTestCase {
 	
 		
 	func testZeroYearsIsRejected() {
-		let result = MathHelper.savingsReturn(startingBalance: 1000, apy: 0.05, years: 0, monthlyDeposit: 0)
+		let result = MathHelper.savingsCalculator(startingBalance: 1000, apy: 0.05, years: 0, monthlyDeposit: 0)
 		XCTAssertEqual(result, -1.0)
 	}
 	

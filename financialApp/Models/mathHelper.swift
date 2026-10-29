@@ -8,29 +8,41 @@ struct MathHelper{
 	}
 	
 	
-	static func savingsReturn(startingBalance: Double, apy: Double, years: Int, monthlyDeposit: Double) -> Double {
-			// valudation of the values prior to their use
-			// this function is not working properly
+		// function for the savings calculator (SavingsView)
+	static func savingsCalculator(startingBalance: Double, apy: Double, years: Int, monthlyDeposit: Double) -> Double {
+		
+			//validation check
 		guard startingBalance >= 0.0, apy >= 0.0, years > 0, monthlyDeposit >= 0.0 else {return -1}
 		
+		
+			//convert annual metrics into monthly metrics
 		let totalMonths = years * 12
+		let monthlyRate = (apy / 100) / 12
 		
-		let monthlyRate = pow(1.0 + apy, 1.0 / 12.0) - 1.0
 		
-		var totalBalance = startingBalance
-		
+			// track the running balance across time
+		var currentBalance = startingBalance
+
+			// compount the interest and then return it
 		for _ in 1...totalMonths {
-				// Calculate interest earned on current balance for the month
-			let interestEarned = totalBalance * monthlyRate
+				// Add the new monthly contribution first
+			currentBalance += monthlyDeposit
 			
-				// Add interest and the monthly contribution to the total
-			totalBalance += interestEarned + monthlyDeposit
+				// Calculate interest earned on the new balance for this month and add it
+			let monthlyInterest = currentBalance * monthlyRate
+			currentBalance += monthlyInterest
 		}
-		return totalBalance
+		
+		return currentBalance
 	}
 	
 	
 	
+	
+	
+	
+	
+	 // Interest calculator function
 	static func interestCalculator( balance: Double?,  annualInterestPercentage: Double?,  daysInCycle: Int?) -> Double {
 		
 		guard let balance, let annualInterestPercentage, let daysInCycle else {
