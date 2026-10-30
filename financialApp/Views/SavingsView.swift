@@ -85,7 +85,7 @@ struct SavingsView: View {
 			
 			VStack {
 				Text("**Certificates of Deposit (CDs)** are time-deposit accounts where you agree to leave your money untouched for a fixed term—ranging from a few months to several years—in exchange for a guaranteed, fixed interest rate. They provide great security and locked-in returns when market rates are falling, but withdrawing your money before the maturity date will trigger a costly early withdrawal penalty.")
-					.padding()
+					.padding(16)
 					.background{
 						RoundedRectangle(cornerRadius: 14)
 							.foregroundStyle(Color.green.opacity(0.9))
