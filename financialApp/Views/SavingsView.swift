@@ -189,6 +189,9 @@ struct SavingsView: View {
 							.bold()
 							.foregroundColor(.gray)
 						
+						
+						
+						
 				Text("0.0") // Add interest varialble here
 						//Text(, format: .currency(code: "USD"))
 							.font(.system(.title2, design: .rounded))
