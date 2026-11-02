@@ -1,18 +1,11 @@
 import SwiftUI
 
-
-
-
-
-
 struct TaxesView: View {
 	@State private var annualIncome = " " // calculator value holders
 	@State private var cityRate = " "
 	@State private var totalNet = " "
 	@State private var taxRate = " "
 	@State private var exitResult = " "
-	
-	
 	
 		//keyboard
 	@FocusState private var isDone: Bool
@@ -95,13 +88,6 @@ struct TaxesView: View {
 				
 				
 				
-				
-					// i need to define a switch to get the tax bracket of theu user
-					// if income <= 100k tax bracket is 22% (Example, real thing might differ)
-				
-				
-					// refactor the table calculator (the percentage hsould be in a small box aside the main result)
-					// table for the tax calculator
 				VStack {
 					
 					VStack{
@@ -212,6 +198,7 @@ struct TaxesView: View {
 				
 				
 			}
+			.padding()
 			.navigationTitle("Taxes, Why?")
 		}
 		.background(.blue.opacity(0.3))

@@ -53,14 +53,7 @@ struct SettingsView: View {
 						//					Text("Selected color:")
 					RoundedRectangle(cornerRadius: 10)
 						.fill(selectedColor)
-					
-					
-					
-					
 				}
-				
-				
-				
 			}
 			.padding()
 			

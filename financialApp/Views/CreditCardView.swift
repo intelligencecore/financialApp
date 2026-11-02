@@ -93,7 +93,7 @@ struct CreditCardView: View {
 							Text("31 Days").tag(2)
 						}// Forces the 3-button switch style
 						.pickerStyle(.segmented)
-						.foregroundStyle(Color.green.opacity(0.4))
+						.foregroundStyle(Color.yellow.opacity(0.8))
 						.padding()
 
 						VStack(alignment: .leading, spacing: 1) {

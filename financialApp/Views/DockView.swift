@@ -1,14 +1,10 @@
 import SwiftUI
 
 
-
-
 struct DockView: View {
 	var body: some View {
 			// start
-		
 		TabView {
-			
 			NavigationStack{
 				TaxesView()
 			}
