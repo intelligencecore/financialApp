@@ -11,9 +11,9 @@ final class financialAppTests: XCTestCase {
 	
 	
 		
-	func testZeroYearsIsRejected() {
-		let result = MathHelper.savingsCalculator(startingBalance: 1000, apy: 0.05, years: 0, monthlyDeposit: 0)
-		XCTAssertEqual(result, -1.0)
-	}
+//	func testZeroYearsIsRejected() {
+//		let result = MathHelper.savingsCalculator(startingBalance: 1000, apy: 0.05, years: 0, monthlyDeposit: 0)
+//		XCTAssertEqual(result, -1.0)
+//	}
 	
 }

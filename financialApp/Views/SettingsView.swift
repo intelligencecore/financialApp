@@ -37,31 +37,39 @@ struct SettingsView: View {
 			}
 			
 			
-			Section {
-				Text(
-					"Select your own colors here:"
-				)
-				.font(.footnote)
-				.foregroundStyle(.secondary)
-				
-				
-				
-				HStack {
-						// sheet with the color picker
-					ColorPicker("App colors", selection: $selectedColor)
-						.padding()
-						//					Text("Selected color:")
-					RoundedRectangle(cornerRadius: 10)
-						.fill(selectedColor)
-				}
-			}
-			.padding()
+			Link(
+				"Example page for url string test",
+				destination:  URL(string: "www.example.com")!)
+			.cornerRadius(1)
+			
+		}
+			
+			Spacer()
+			
+//			Section {
+//				Text(
+//					"Select your own colors here:"
+//				)
+//				.font(.footnote)
+//				.foregroundStyle(.secondary)
+//				
+//				
+//				
+//				HStack {
+//						// sheet with the color picker
+//					ColorPicker("App colors", selection: $selectedColor)
+//						.padding()
+//						//					Text("Selected color:")
+//					RoundedRectangle(cornerRadius: 10)
+//						.fill(selectedColor)
+//				}
+//			}
+//			.padding()
 			
 			
 			Section {
 				
 				Text("This app does not provide financial services or generate monetary gain for its users. It was created solely as a hobby project for educational and learning purposes.")
-					.padding()
 			}
 			.fontWidth(.condensed)
 			.background(
@@ -69,17 +77,19 @@ struct SettingsView: View {
 					.fill(Color("CustomBeige"))
 			)
 			
-			
+		
+		
+			.padding(.bottom, 10)
+			.navigationTitle("Settings")
 			
 		}
-		.padding()
+//		.padding()
 		
-		.navigationTitle("Settings")
 		
 		
 	}
 	
-}
+
 	
 
 
