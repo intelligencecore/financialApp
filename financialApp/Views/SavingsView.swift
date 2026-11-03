@@ -30,7 +30,7 @@ struct SavingsView: View {
 			.padding()
 			.background {
 				RoundedRectangle(cornerRadius: 14)
-					.foregroundStyle(Color.green.opacity(0.9))
+					.foregroundStyle(Color.green.opacity(0.4))
 			}
 			.padding()
 
@@ -45,7 +45,7 @@ struct SavingsView: View {
 			.padding()
 			.background {
 				RoundedRectangle(cornerRadius: 14)
-					.foregroundStyle(Color.green.opacity(0.9))
+					.foregroundStyle(Color.green.opacity(0.4))
 			}
 			.padding()
 
@@ -63,7 +63,7 @@ struct SavingsView: View {
 			}
 			.background {
 				RoundedRectangle(cornerRadius: 14)
-					.foregroundStyle(Color.green.opacity(0.9))
+					.foregroundStyle(Color.green.opacity(0.4))
 
 			}
 			.padding()
@@ -76,7 +76,7 @@ struct SavingsView: View {
 				.padding()
 				.background {
 					RoundedRectangle(cornerRadius: 14)
-						.foregroundStyle(Color.green.opacity(0.9))
+						.foregroundStyle(Color.green.opacity(0.4))
 				}
 
 			}
@@ -89,7 +89,7 @@ struct SavingsView: View {
 				.padding(16)
 				.background {
 					RoundedRectangle(cornerRadius: 14)
-						.foregroundStyle(Color.green.opacity(0.9))
+						.foregroundStyle(Color.green.opacity(0.4))
 
 				}
 				Image("certificateofdeposit")
@@ -200,6 +200,7 @@ struct SavingsView: View {
 				// Calculate Button
 				Button {
 					calculate()
+					totalInterestAccrued  = 0.0
 				} label: {
 					Text("Calculate")
 						.bold()
