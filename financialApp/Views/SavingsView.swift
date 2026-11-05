@@ -71,7 +71,7 @@ struct SavingsView: View {
 			VStack {
 
 				Text(
-					"Money Market Accounts (MMAs) act as a hybrid between a checking and savings account, offering competitive interest rates comparable to HYSAs alongside direct check-writing privileges and debit card access. They are best suited for large emergency funds or irregular, large expenses, but they typically require a much higher initial deposit or minimum daily balance to waive monthly fees."
+					"**Money Market Accounts (MMAs)** act as a hybrid between a checking and savings account, offering competitive interest rates comparable to HYSAs alongside direct check-writing privileges and debit card access. They are best suited for large emergency funds or irregular, large expenses, but they typically require a much higher initial deposit or minimum daily balance to waive monthly fees."
 				)
 				.padding()
 				.background {
@@ -271,12 +271,6 @@ struct SavingsView: View {
 				}
 				
 			}
-			
-			
-			
-			
-			
-			
 		}
 	}
 }
