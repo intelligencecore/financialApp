@@ -16,7 +16,7 @@ struct SavingsView: View {
 		ScrollView {
 
 			VStack(alignment: .leading) {
-				Text("What are savings?")
+				Text("What are savings?💰")
 					.font(.title)
 
 			}
@@ -200,7 +200,6 @@ struct SavingsView: View {
 				// Calculate Button
 				Button {
 					calculate()
-					totalInterestAccrued  = 0.0
 				} label: {
 					Text("Calculate")
 						.bold()
@@ -244,13 +243,41 @@ struct SavingsView: View {
 		}
 
 		// referencing the MathHelper file on Models/
-		let (totalBalanceResult, interestAccruedResult) = MathHelper.savingsCalculator(
+		let result = MathHelper.savingsCalculator(
 			startingBalance: balance,
 			apy: annualpy,
 			years: yearCount,
 			monthlyDeposit: monthlyDeposits
 		)
-
+		totalBalanceResult = result.0
+		totalInterestAccrued = result.1
+		if totalBalanceResult == -1 {
+			
+			
+			
+			
+				// 1. Defining a custom error conforming to LocalizedError
+			enum AppError: LocalizedError {
+				case negativeValue
+				case invalidInput
+				
+			var errorDescription: String? {
+				switch self {
+			case .negativeValue:
+					return "The value returned is negative"
+			case .invalidInput:
+					return "Invalid input"
+					}
+				}
+				
+			}
+			
+			
+			
+			
+			
+			
+		}
 	}
 }
 
