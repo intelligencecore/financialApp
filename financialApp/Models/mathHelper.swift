@@ -86,6 +86,54 @@ struct MathHelper{
 	
 	
 	
+	static func mortageCalculator(_ housePrice: Double?, _ downPayment: Double?, _ interestRate: Double?, _ loanTermYears: Double?)->Double{
+		
+		guard let housePrice,
+			  let downPayment,
+			  let interestRate,
+			  let loanTermYears
+				else {
+			return -1.0
+		}
+		
+	// I need to calculate the apr monthly for each year
+		
+		
+		enum loanTerms: Int {
+			case ten = 10
+			case fifteen = 15
+			case twenty = 20
+			case thirty = 30
+		}
+		
+		let principal = housePrice - downPayment
+		let totalMonths = Double(loanTermYears * 12)
+		let monthlyRate = (interestRate / 100) / 12
+		
+		
+		
+		// check when the interest rate is 0%
+		if monthlyRate == 0 {
+			return principal / totalMonths
+		}
+		
+		
+		
+		
+			// amortization formula
+		let ratePow = pow(1 + monthlyRate, totalMonths)
+		let monthlyPayment = principal * (monthlyRate * ratePow) / (ratePow - 1)
+		
+		return monthlyPayment
+			
+	}
+	
+	
+	
+	
+	
+	
+	
 	
 }
 
