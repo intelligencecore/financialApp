@@ -101,7 +101,7 @@ struct MortgageView: View {
 
 						HStack(spacing: 16) {
 							Button {
-
+								calculate()
 							} label: {
 								Text("Get the Mortgage rate!")
 							}
@@ -116,7 +116,6 @@ struct MortgageView: View {
 							}
 							.buttonStyle(GlassButtonStyle())
 							.foregroundStyle(Color.red)
-
 						}.padding(.horizontal)
 
 					}
@@ -151,12 +150,29 @@ struct MortgageView: View {
 		.navigationBarTitleDisplayMode(.automatic)
 	}
 
-	// operation function
-	// now i need to pass all the values so the calculation can be done on mathHelper
-	func mortgageCalculation() {
-
-		//		return -1
+	
+	
+	// calculator method
+	private func calculate(){
+		
+//		guard let price = Double(housePrice),
+//			  let downPayment = Double(downPayment),
+//			  let interestRate,
+//			  let loanTermYears
+//				else {
+//			return -1.0
+//		}
+		
+		
 	}
+	
+	
+		// operation function
+//	let payment = MathHelper.mortageCalculator(10,20, 20, 30.0)
+
+
+	// now i need to pass all the values so the calculation can be done on mathHelper
+	
 }
 
 #Preview {

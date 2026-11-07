@@ -85,8 +85,8 @@ struct MathHelper{
 	
 	
 	
-	
-	static func mortageCalculator(_ housePrice: Double?, _ downPayment: Double?, _ interestRate: Double?, _ loanTermYears: Double?)->Double{
+	// static means that the function belongs to the struct itself and doesnt have to be instanciated.
+	static func mortgageCalculator(housePrice: Double?, downPayment: Double?, interestRate: Double?, loanTermYears: Double?) -> Double{
 		
 		guard let housePrice,
 			  let downPayment,
@@ -97,15 +97,6 @@ struct MathHelper{
 		}
 		
 	// I need to calculate the apr monthly for each year
-		
-		
-		enum loanTerms: Int {
-			case ten = 10
-			case fifteen = 15
-			case twenty = 20
-			case thirty = 30
-		}
-		
 		let principal = housePrice - downPayment
 		let totalMonths = Double(loanTermYears * 12)
 		let monthlyRate = (interestRate / 100) / 12
