@@ -2,7 +2,6 @@ import SwiftUI
 
 struct MortgageView: View {
 	@State private var homeValue = ""
-	@State private var HomePrice = ""
 	@State private var loanAmount = ""
 	@State private var interestRate = ""
 	@State private var fieldColor = Color.primary
@@ -101,7 +100,7 @@ struct MortgageView: View {
 
 						HStack(spacing: 16) {
 							Button {
-								calculate()
+//								calculate()
 							} label: {
 								Text("Get the Mortgage rate!")
 							}
@@ -153,25 +152,52 @@ struct MortgageView: View {
 	
 	
 	// calculator method
-	private func calculate(){
-		
-//		guard let price = Double(housePrice),
-//			  let downPayment = Double(downPayment),
-//			  let interestRate,
-//			  let loanTermYears
-//				else {
-//			return -1.0
-//		}
-		
-		
-	}
-	
-	
-		// operation function
-//	let payment = MathHelper.mortageCalculator(10,20, 20, 30.0)
-
+	// operation function
 
 	// now i need to pass all the values so the calculation can be done on mathHelper
+	
+	
+//	private func calculate(){
+//		guard let value = Dobule(homeValue),
+//			  let apr = Double()
+//		
+//		
+//		
+//		
+//	}
+	
+	
+	// calculate the output of the calculator
+//	private func calculate() {
+//		guard let balance = Double(startingBalance),
+//			  let loanBalance = Double(loanBalance),
+//			  let monthlyDeposits = Double(monthlyDeposit),
+//			  let yearCount = Int(years)
+//				else {
+//			totalBalanceResult = -1.0
+//			return
+//		}
+	
+	
+	
+	
+	
+	
+		
+	
+	
+//	let result = MathHelper.mortgageCalculator(
+//			housePrice: Double(homeValue),
+//			downPayment: Double(downPayment),
+//			interestRate: Double(interestRate),
+//			loanTermYears: Double())
+//	
+//	
+	
+	
+	
+	
+	
 	
 }
 
