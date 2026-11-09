@@ -7,6 +7,7 @@ struct MortgageView: View {
 	@State private var fieldColor = Color.primary
 	@State private var downPayment = ""
 	@State private var totalBalanceResult: Double = 0.0
+	@State private var totalMortgageYears: String
 	//	@State private var settingsPickerColor: Color
 	@FocusState private var isDone: Bool
 
@@ -63,20 +64,40 @@ struct MortgageView: View {
 						}
 
 						VStack(alignment: .leading, spacing: 6) {
-							Text("Loan Amount")
-							TextField("e.g. $500,000.00", text: $loanAmount)
-								.keyboardType(.decimalPad)
-								.textFieldStyle(.roundedBorder)
-
-						}
-
-						VStack(alignment: .leading, spacing: 6) {
 							Text("Interest Rate")
 							TextField("e.g. 6%", text: $interestRate)
 								.keyboardType(.decimalPad)
 								.textFieldStyle(.roundedBorder)
 
 						}
+						
+						
+						VStack(alignment: .leading, spacing: 6) {
+//							Text("Loan Amount")
+//							TextField("e.g. $500,000.00", text: $loanAmount)
+//								.keyboardType(.decimalPad)
+//								.textFieldStyle(.roundedBorder)
+							
+							
+							Picker("Options", selection: $totalMortgageYears) {
+								Text("29 Days").tag(0)
+								Text("30 Days").tag(1)
+								Text("31 Days").tag(2)
+							}// Forces the 3-button switch style
+							.pickerStyle(.segmented)
+							.foregroundStyle(Color.yellow.opacity(0.8))
+							.padding()
+							
+							
+							
+							
+						}
+						
+						
+						
+						
+						
+						
 
 						VStack {
 							Text("Total Balance")
