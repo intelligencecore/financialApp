@@ -5,6 +5,8 @@ struct SettingsView: View {
 	@AppStorage("showDefinitions") private var showDefinitions = true
 	@State private var versValue = 0.9
 	@State private var selectedColor = Color.white
+	@State private var accentColor:Double = 0.0
+	
 	
 	
 	
@@ -17,6 +19,15 @@ struct SettingsView: View {
 		Form {
 			Section("Appearance") {
 				Toggle("Dark mode", isOn: $useDarkMode)
+				Slider(value: $accentColor, in: 0...100)
+					
+				// slider
+				
+				
+				
+				
+				
+				
 			}
 			
 			Section("Reading") {
