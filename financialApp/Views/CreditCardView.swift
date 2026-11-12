@@ -7,6 +7,12 @@ struct CreditCardView: View {
 	@State private var daysOfCycle = ""
 	@State private var inputApr = ""
 	@State private var selectedSelection = ""
+	@Binding var accentColor: Double
+	
+	
+	
+	
+	
 	var body: some View {
 
 		ScrollView {
@@ -121,7 +127,7 @@ struct CreditCardView: View {
 		.padding()
 		.navigationTitle("Credit Cards")
 		.frame(maxWidth: .infinity, maxHeight: .infinity)
-		.background(Color("CustomYellow"))
+		.background(Color("CustomYellow").opacity(accentColor))
 
 	}
 
@@ -146,5 +152,5 @@ struct CreditCardView: View {
 }
 
 #Preview {
-	CreditCardView()
+	CreditCardView(accentColor: .constant(0.0) )
 }
