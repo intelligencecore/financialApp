@@ -6,6 +6,7 @@ struct CreditCardView: View {
 	@State private var inputBalance = ""
 	@State private var daysOfCycle = ""
 	@State private var inputApr = ""
+	@State private var selectedSelection = ""
 	var body: some View {
 
 		ScrollView {
@@ -100,7 +101,7 @@ struct CreditCardView: View {
 							Text("Whats your APR?")
 								.bold()
 
-							TextField("Input your APR", text: $inputAPR)
+							TextField("Input your APR", text: $inputApr)
 								.bold()
 								.textFieldStyle(.bordered)
 						}
@@ -128,16 +129,16 @@ struct CreditCardView: View {
 
 	
 	
-	func calculate(){
-		
-		guard let balance = inputBalance ,
-			  apr = inputApr,
-			  cycledays = daysOfCycle
-		else {return -1}
-		
-		let result = MathHelper.interestCalculator(balance: Double(inputBalance), annualInterestPercentage: inputApr, daysInCycle: Int(daysOfCycle))
-		
-	}
+//	func calculate(){
+//		
+//		guard let balance = inputBalance ,
+//			  apr = inputApr,
+//			  cycledays = daysOfCycle
+//		else {return -1}
+//		
+//		let result = MathHelper.interestCalculator(balance: Double(inputBalance), annualInterestPercentage: inputApr, daysInCycle: Int(daysOfCycle))
+//		
+//	}
 	
 	
 	
