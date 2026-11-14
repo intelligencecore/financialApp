@@ -3,7 +3,7 @@ import SwiftUI
 struct SettingsView: View {
 	@AppStorage("useDarkMode") private var useDarkMode = false
 	@AppStorage("showDefinitions") private var showDefinitions = true
-	@State private var versValue = 0.9
+	@State private var versValue = 1.0
 	@State private var selectedColor = Color.white
 	@State private var accentColor:Double = 0.0
 	
@@ -19,8 +19,12 @@ struct SettingsView: View {
 		Form {
 			Section("Appearance") {
 				Toggle("Dark mode", isOn: $useDarkMode)
-				Slider(value: $accentColor, in: 0...100)
-					
+				
+			}
+				Section("Color Opacity") {
+				Slider(value: $accentColor, in: 0...100){
+					Text("Color")
+				}
 				// slider
 				
 				
@@ -57,25 +61,7 @@ struct SettingsView: View {
 			
 			Spacer()
 			
-//			Section {
-//				Text(
-//					"Select your own colors here:"
-//				)
-//				.font(.footnote)
-//				.foregroundStyle(.secondary)
-//				
-//				
-//				
-//				HStack {
-//						// sheet with the color picker
-//					ColorPicker("App colors", selection: $selectedColor)
-//						.padding()
-//						//					Text("Selected color:")
-//					RoundedRectangle(cornerRadius: 10)
-//						.fill(selectedColor)
-//				}
-//			}
-//			.padding()
+
 			
 			
 			Section {
