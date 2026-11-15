@@ -2,6 +2,13 @@ import SwiftUI
 
 
 struct DockView: View {
+	
+	@State private var accentColor: Double = 0.0
+	
+	
+	
+	
+	
 	var body: some View {
 			// start
 		TabView {
@@ -17,7 +24,7 @@ struct DockView: View {
 			}
 			
 			NavigationStack{
-				CreditCardView()
+				CreditCardView(accentColor: $accentColor)
 			}
 			.tabItem { Label("Credit Card", systemImage: "creditcard")
 				}
