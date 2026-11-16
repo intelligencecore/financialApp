@@ -133,21 +133,7 @@ struct CreditCardView: View {
 
 	// call the MathHelper file to calculate the interest with the calculator
 
-	
-	
-//	func calculate(){
-//		
-//		guard let balance = inputBalance ,
-//			  apr = inputApr,
-//			  cycledays = daysOfCycle
-//		else {return -1}
-//		
-//		let result = MathHelper.interestCalculator(balance: Double(inputBalance), annualInterestPercentage: inputApr, daysInCycle: Int(daysOfCycle))
-//		
-//	}
-	
-	
-	
+
 	
 }
 
