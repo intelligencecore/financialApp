@@ -8,7 +8,7 @@ struct CreditCardView: View {
 	@State private var inputApr = ""
 	@State private var selectedSelection = ""
 	@Binding var accentColor: Double
-	
+	@State private var paymentWithInterest: String
 	
 	
 	
@@ -85,6 +85,7 @@ struct CreditCardView: View {
 							.foregroundStyle(Color.white)
 							.padding(.horizontal)
 					}
+					
 
 					// take in the days in the month
 					VStack(alignment: .leading, spacing: 10) {
@@ -103,13 +104,41 @@ struct CreditCardView: View {
 						.foregroundStyle(Color.yellow.opacity(0.8))
 						.padding()
 
-						VStack(alignment: .leading, spacing: 1) {
+						VStack(alignment: .leading) {
 							Text("Whats your APR?")
 								.bold()
 
 							TextField("Input your APR", text: $inputApr)
 								.bold()
 								.textFieldStyle(.bordered)
+							
+							VStack(alignment: .center) {
+//								Text("Your monthly payment with interest is: \(paymentWithInterest)")
+								
+								
+								TextField("Monthly payment", text: $paymentWithInterest)
+									.textFieldStyle(.bordered)
+									.foregroundStyle(Color.white)
+									.padding(.horizontal)
+								
+								
+								
+//
+//									.bold()
+//									.background(
+//										RoundedRectangle(cornerRadius: 1, style: .continuous)
+//											.fill(Color.secondary)
+//									)
+								
+							}
+//							.background(
+//								RoundedRectangle(cornerRadius: 1, style: .continuous)
+//									.fill(Color.primary)
+//								
+//								
+//							)
+							
+							
 						}
 						.padding(.all)
 
@@ -121,6 +150,7 @@ struct CreditCardView: View {
 						.padding(.all, 10)
 				)
 			}
+//			.background(.shadow(.inner(radius: 0.1)))
 			
 
 		}
@@ -138,5 +168,5 @@ struct CreditCardView: View {
 }
 
 #Preview {
-	CreditCardView(accentColor: .constant(0.0) )
+	CreditCardView(accentColor: .constant(0.5) )
 }
