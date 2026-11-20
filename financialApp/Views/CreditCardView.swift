@@ -1,147 +1,88 @@
-import Foundation
 import SwiftUI
 
 struct CreditCardView: View {
 
-	@State private var inputBalance = ""
-	@State private var daysOfCycle = ""
-	@State private var inputApr = ""
-	@State private var selectedSelection = ""
 	@Binding var accentColor: Double
-	@State private var paymentWithInterest: String
-	
-	
-	
-	
+	@State private var inputBalance = ""
+	@State private var selectedDays = 30
+	@State private var inputApr = ""
+	@State private var paymentWithInterest = ""
+
 	var body: some View {
-
 		ScrollView {
-
 			VStack {
-				VStack(alignment: .leading, spacing: 40) {
-					Text("💳Whart are credit cards?")
-						.fontWeight(.semibold)
-						.frame(maxWidth: .infinity, alignment: .leading)
-				}
+				Text("💳What are credit cards?")
+					.fontWeight(.semibold)
+					.frame(maxWidth: .infinity, alignment: .leading)
 
-				VStack {
-					Text(
-						"A credit card is a physical or digital financial tool issued by a bank that grants you access to a revolving line of credit, allowing you to borrow money up to a pre-approved limit to make purchases rather than drawing from your personal bank account. Every month, you receive a bill for what you spent; if you pay the entire balance in full by the due date, you avoid interest charges entirely while safely building your credit score and earning rewards. However, if you only pay the minimum required amount, the remaining balance rolls over to the next month and accrues interest at a typically high Annual Percentage Rate (APR), which can quickly lead to high-interest debt if not managed responsibly."
+				Text("A credit card is a physical or digital financial tool issued by a bank that grants you access to a revolving line of credit, allowing you to borrow money up to a pre-approved limit to make purchases rather than drawing from your personal bank account. Every month, you receive a bill for what you spent; if you pay the entire balance in full by the due date, you avoid interest charges entirely while safely building your credit score and earning rewards. However, if you only pay the minimum required amount, the remaining balance rolls over to the next month and accrues interest at a typically high Annual Percentage Rate (APR), which can quickly lead to high-interest debt if not managed responsibly.")
+					.bold()
+					.padding()
+					.background(
+						RoundedRectangle(cornerRadius: 14)
+							.fill(Color.gray)
+							.padding(.all, 10)
 					)
 
-					//.multilineTextAlignment(.leading)
+				Text("There are various types of credit cards, some will get you airline points, some others will give you cash back, it will depend on the use that you have and what you are spending on the most every month.")
 					.bold()
-				}
-				.padding()
-				.background(
-					RoundedRectangle(cornerRadius: 14)
-						//.fill(Color("CustomYellow"))
-						.fill(Color.gray)
-						.padding(.all, 10)
-
-				)
-
-				VStack {
-
-					Text(
-						"There are various tpyes of credit cards, some will get you arilines points, some other will give you cash back or c, it will depend on the use that you have and what are you expending on the most every month"
+					.padding()
+					.background(
+						RoundedRectangle(cornerRadius: 14)
+							.fill(Color.yellow)
+							.padding(.all, 10)
 					)
-					.bold()
-				}
-				.padding()
-				.background(
-					RoundedRectangle(cornerRadius: 14)
-						.fill(Color.yellow.opacity(1)
-						)
-						.padding(.all, 10)
-				)
-			}
 
-			VStack {
+				Text("It is in your best interest not to pay interest!")
+					.fontWeight(.heavy)
 
-				VStack {
-
-					Text("Is in your best interest not to pay interest!")
-						.fontWeight(.heavy)
-						.bold()
-				}
-
-				//Credit card interest calculator
 				VStack {
 					Text("Credit Card Interest Calculator")
 						.fontWeight(.semibold)
 						.padding()
 
-					// take in the balance
 					VStack(alignment: .leading, spacing: 16) {
 						Text("Input Your Balance")
 							.font(.title2)
 							.bold()
 							.padding(.horizontal)
 
-						//textfield for the input
 						TextField("e.g. 1000", text: $inputBalance)
 							.textFieldStyle(.bordered)
 							.foregroundStyle(Color.white)
 							.padding(.horizontal)
 					}
-					
 
-					// take in the days in the month
 					VStack(alignment: .leading, spacing: 10) {
 						Text("Select how many days")
 							.font(.title2)
 							.bold()
 							.padding(.horizontal)
 
-						// picker with the options for the days in the month
-						Picker("Options", selection: $selectedSelection) {
-							Text("29 Days").tag(0)
-							Text("30 Days").tag(1)
-							Text("31 Days").tag(2)
-						}// Forces the 3-button switch style
+						Picker("Options", selection: $selectedDays) {
+							Text("29 Days").tag(29)
+							Text("30 Days").tag(30)
+							Text("31 Days").tag(31)
+						}
 						.pickerStyle(.segmented)
 						.foregroundStyle(Color.yellow.opacity(0.8))
 						.padding()
 
 						VStack(alignment: .leading) {
-							Text("Whats your APR?")
+							Text("What's your APR?")
 								.bold()
 
 							TextField("Input your APR", text: $inputApr)
 								.bold()
 								.textFieldStyle(.bordered)
-							
-							VStack(alignment: .center) {
-//								Text("Your monthly payment with interest is: \(paymentWithInterest)")
-								
-								
-								TextField("Monthly payment", text: $paymentWithInterest)
-									.textFieldStyle(.bordered)
-									.foregroundStyle(Color.white)
-									.padding(.horizontal)
-								
-								
-								
-//
-//									.bold()
-//									.background(
-//										RoundedRectangle(cornerRadius: 1, style: .continuous)
-//											.fill(Color.secondary)
-//									)
-								
-							}
-//							.background(
-//								RoundedRectangle(cornerRadius: 1, style: .continuous)
-//									.fill(Color.primary)
-//								
-//								
-//							)
-							
-							
+								.padding(.horizontal)
+
+							TextField("Monthly payment", text: $paymentWithInterest)
+								.textFieldStyle(.bordered)
+								.foregroundStyle(Color.white)
+								.padding(.horizontal)
 						}
 						.padding(.all)
-
 					}
 				}
 				.background(
@@ -150,23 +91,14 @@ struct CreditCardView: View {
 						.padding(.all, 10)
 				)
 			}
-//			.background(.shadow(.inner(radius: 0.1)))
-			
-
 		}
 		.padding()
 		.navigationTitle("Credit Cards")
 		.frame(maxWidth: .infinity, maxHeight: .infinity)
 		.background(Color("CustomYellow").opacity(accentColor))
-
 	}
-
-	// call the MathHelper file to calculate the interest with the calculator
-
-
-	
 }
 
 #Preview {
-	CreditCardView(accentColor: .constant(0.5) )
+	CreditCardView(accentColor: .constant(0.5))
 }
