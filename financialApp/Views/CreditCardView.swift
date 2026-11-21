@@ -6,99 +6,126 @@ struct CreditCardView: View {
 	@State private var inputBalance = ""
 	@State private var selectedDays = 30
 	@State private var inputApr = ""
-	@State private var paymentWithInterest = ""
+
+	private var balance: Double? {
+		guard let value = try? Double(inputBalance, format: .number), value >= 0 else { return nil }
+		return value
+	}
+
+	private var interest: Double? {
+		guard let balance,
+			  let apr = try? Double(inputApr, format: .number), apr >= 0
+		else { return nil }
+		return MathHelper.interestCalculator(balance: balance, annualInterestPercentage: apr, daysInCycle: selectedDays)
+	}
 
 	var body: some View {
 		ScrollView {
-			VStack {
-				Text("💳What are credit cards?")
-					.fontWeight(.semibold)
-					.frame(maxWidth: .infinity, alignment: .leading)
+			VStack(alignment: .leading, spacing: 20) {
+				VStack(alignment: .leading, spacing: 12) {
+					Label("What are credit cards?", systemImage: "creditcard")
+						.font(.title2.bold())
 
-				Text("A credit card is a physical or digital financial tool issued by a bank that grants you access to a revolving line of credit, allowing you to borrow money up to a pre-approved limit to make purchases rather than drawing from your personal bank account. Every month, you receive a bill for what you spent; if you pay the entire balance in full by the due date, you avoid interest charges entirely while safely building your credit score and earning rewards. However, if you only pay the minimum required amount, the remaining balance rolls over to the next month and accrues interest at a typically high Annual Percentage Rate (APR), which can quickly lead to high-interest debt if not managed responsibly.")
-					.bold()
-					.padding()
-					.background(
-						RoundedRectangle(cornerRadius: 14)
-							.fill(Color.gray)
-							.padding(.all, 10)
-					)
+					Text("A credit card lets you borrow from a bank up to a pre-approved limit instead of paying from your own account. Every month you get a bill for what you spent.")
+						.foregroundStyle(.secondary)
 
-				Text("There are various types of credit cards, some will get you airline points, some others will give you cash back, it will depend on the use that you have and what you are spending on the most every month.")
-					.bold()
-					.padding()
-					.background(
-						RoundedRectangle(cornerRadius: 14)
-							.fill(Color.yellow)
-							.padding(.all, 10)
-					)
+					Label("Pay the full balance by the due date and you pay no interest, while building your credit score and earning rewards.", systemImage: "checkmark.circle")
+						.foregroundStyle(.green)
+
+					Label("Pay only the minimum and the rest rolls over, charged at a high APR. That is how high-interest debt builds up.", systemImage: "exclamationmark.triangle")
+						.foregroundStyle(.orange)
+				}
+				.card()
+
+				VStack(alignment: .leading, spacing: 12) {
+					Label("Types of cards", systemImage: "square.stack")
+						.font(.title2.bold())
+
+					Text("Some cards give you airline points, others give you cash back. The right one depends on what you spend the most on every month.")
+						.foregroundStyle(.secondary)
+				}
+				.card()
 
 				Text("It is in your best interest not to pay interest!")
-					.fontWeight(.heavy)
+					.font(.headline)
+					.frame(maxWidth: .infinity)
+					.multilineTextAlignment(.center)
 
-				VStack {
-					Text("Credit Card Interest Calculator")
-						.fontWeight(.semibold)
-						.padding()
+				VStack(alignment: .leading, spacing: 16) {
+					Label("Interest Calculator", systemImage: "percent")
+						.font(.title2.bold())
 
-					VStack(alignment: .leading, spacing: 16) {
-						Text("Input Your Balance")
-							.font(.title2)
-							.bold()
-							.padding(.horizontal)
-
-						TextField("e.g. 1000", text: $inputBalance)
-							.textFieldStyle(.bordered)
-							.foregroundStyle(Color.white)
-							.padding(.horizontal)
+					VStack(alignment: .leading, spacing: 6) {
+						Text("Balance")
+							.font(.headline)
+						HStack {
+							Text("$")
+								.foregroundStyle(.secondary)
+							TextField("1000", text: $inputBalance)
+								.keyboardType(.decimalPad)
+						}
+						.textFieldStyle(.roundedBorder)
 					}
 
-					VStack(alignment: .leading, spacing: 10) {
-						Text("Select how many days")
-							.font(.title2)
-							.bold()
-							.padding(.horizontal)
-
-						Picker("Options", selection: $selectedDays) {
+					VStack(alignment: .leading, spacing: 6) {
+						Text("Days in billing cycle")
+							.font(.headline)
+						Picker("Days in billing cycle", selection: $selectedDays) {
 							Text("29 Days").tag(29)
 							Text("30 Days").tag(30)
 							Text("31 Days").tag(31)
 						}
 						.pickerStyle(.segmented)
-						.foregroundStyle(Color.yellow.opacity(0.8))
-						.padding()
-
-						VStack(alignment: .leading) {
-							Text("What's your APR?")
-								.bold()
-
-							TextField("Input your APR", text: $inputApr)
-								.bold()
-								.textFieldStyle(.bordered)
-								.padding(.horizontal)
-
-							TextField("Monthly payment", text: $paymentWithInterest)
-								.textFieldStyle(.bordered)
-								.foregroundStyle(Color.white)
-								.padding(.horizontal)
-						}
-						.padding(.all)
 					}
+
+					VStack(alignment: .leading, spacing: 6) {
+						Text("APR")
+							.font(.headline)
+						HStack {
+							TextField("From 0 to 29.99", text: $inputApr)
+								.keyboardType(.decimalPad)
+							Text("%")
+								.foregroundStyle(.secondary)
+						}
+						.textFieldStyle(.roundedBorder)
+					}
+
+					Divider()
+
+					VStack(alignment: .leading, spacing: 4) {
+						Text("Interest this cycle")
+							.font(.subheadline)
+							.foregroundStyle(.secondary)
+						Text(interest ?? 0, format: .currency(code: "USD"))
+							.font(.largeTitle.bold())
+							.contentTransition(.numericText())
+						Text("Total to pay: \((balance ?? 0) + (interest ?? 0), format: .currency(code: "USD"))")
+							.font(.subheadline)
+							.foregroundStyle(.red)
+					}
+					.animation(.default, value: interest)
 				}
-				.background(
-					RoundedRectangle(cornerRadius: 14)
-						.fill(Color.blue.opacity(0.4))
-						.padding(.all, 10)
-				)
+				.card(tint: .accentColor)
 			}
+			.padding()
 		}
-		.padding()
 		.navigationTitle("Credit Cards")
-		.frame(maxWidth: .infinity, maxHeight: .infinity)
+		.scrollDismissesKeyboard(.interactively)
 		.background(Color("CustomYellow").opacity(accentColor))
 	}
 }
 
+private extension View {
+	func card(tint: Color? = nil) -> some View {
+		padding()
+			.frame(maxWidth: .infinity, alignment: .leading)
+			.background(.regularMaterial, in: .rect(cornerRadius: 14))
+			.background((tint ?? .clear).opacity(0.15), in: .rect(cornerRadius: 14))
+	}
+}
+
 #Preview {
-	CreditCardView(accentColor: .constant(0.5))
+	NavigationStack {
+		CreditCardView(accentColor: .constant(0.5))
+	}
 }
